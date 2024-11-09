@@ -7,3 +7,7 @@
 jmh-benchmarks
 .idea
 decimal4j.iml
+local.properties
+decimal4kmp/build
+annotations/build
+.kotlin

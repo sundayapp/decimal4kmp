@@ -1,0 +1,45 @@
+name: Publish
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ${{ vars.RUNNER_GITHUB_TYPE }}
+    permissions:
+      contents: write
+      id-token: write
+      packages: read
+    timeout-minutes: 40
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Setup Docker on macOS
+        uses: douglascamata/setup-docker-macos-action@v1-alpha
+
+      - name: Login to GAR
+        uses: sundayapp/reusable-workflows/.github/actions/login-gcp@v3.5.0 # x-release-please-version
+        with:
+          workload_identity_provider: ${{ vars.GCP_WORKLOAD_IDP }}
+          service_account: ${{ vars.GCP_GITHUB_ACTIONS_SA_NAME }}
+
+      - name: Build Java artefacts
+        uses: sundayapp/reusable-workflows/.github/actions/build-java@v3.5.0 # x-release-please-version
+        with:
+          java_version: "21"
+          java_distribution: "temurin"
+          java_args: ""
+          use_docker_compose: $false
+          artefacts_name: "artefacts"
+          artefacts_path: "build/libs"
+          publish: true
+          tests: false
+          token: ${{ secrets.TOKEN_GITHUB }}
+          scan: true
+          sonar_project: ${{ github.event.repository.name }}
+          sonar_token: ${{ secrets.SONAR_TOKEN }}
+          sonar_host_url: ${{ secrets.SONAR_HOST_URL }}

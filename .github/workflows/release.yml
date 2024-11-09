@@ -1,0 +1,14 @@
+name: Release
+
+on:
+  push:
+    paths:
+      - 'CHANGELOG.md'
+    branches:
+      - main
+      - hotfix/**
+
+jobs:
+  release:
+    uses: sundayapp/reusable-workflows/.github/workflows/release-please-template.yml@v3
+    secrets: inherit

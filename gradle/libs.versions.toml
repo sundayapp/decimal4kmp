@@ -1,0 +1,40 @@
+[versions]
+agp = "8.7.2"
+fmpp = "0.9.14"
+kotlin = "2.0.21"
+android-minSdk = "24"
+android-compileSdk = "34"
+kotlinxDatetime = "0.6.1"
+sonarQube = "5.1.0.4882"
+coroutines = "1.9.0"
+decimal4j = "1.0.3"
+kotest = "6.0.0.M1"
+ksp = "2.0.21-1.0.28"
+
+[libraries]
+fmpp = { module = "net.sourceforge.fmpp:fmpp", version.ref = "fmpp" }
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+junit = { module = "junit:junit", version = "4.13.2" }
+junit-params = { module = "pl.pragmatists:JUnitParams", version = "1.1.1" }
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
+decimal4j = { module = "org.decimal4j:decimal4j", version.ref = "decimal4j" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
+kotest-framework-engine = { module = "io.kotest:kotest-framework-engine", version.ref = "kotest" }
+kotest-property = { module = "io.kotest:kotest-property", version.ref = "kotest" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
+javapoet = { module = "com.squareup:javapoet", version = "1.12.1" }
+ksp-api = { module = "com.google.devtools.ksp:symbol-processing-api", version.ref = "ksp" }
+mockk = { group = "io.mockk", name = "mockk", version = "1.13.13" }
+
+
+
+[plugins]
+googleKsp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+sonarQube = { id = "org.sonarqube", version.ref = "sonarQube" }
+kotest-multiplatform = { id = "io.kotest.multiplatform", version.ref = "kotest" }
