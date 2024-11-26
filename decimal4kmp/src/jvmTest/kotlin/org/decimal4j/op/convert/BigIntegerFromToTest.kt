@@ -23,8 +23,11 @@
  */
 package org.decimal4j.op.convert
 
+import org.decimal4j.api.BigIntegerExtension.toBigInteger
+import org.decimal4j.api.BigIntegerExtension.toBigIntegerExact
 import org.decimal4j.api.DecimalArithmetic
 import org.decimal4j.api.MutableDecimal
+import org.decimal4j.api.MutableDecimalJvm.set
 import org.decimal4j.arithmetic.JDKSupport
 import org.decimal4j.factory.DecimalFactory
 import org.decimal4j.op.AbstractFromToTest
@@ -73,7 +76,8 @@ class BigIntegerFromToTest(s: ScaleMetrics?, arithmetic: DecimalArithmetic) :
     }
 
     override fun <S : ScaleMetrics> actualResult(factory: DecimalFactory<S>, value: BigInteger): BigInteger {
-        val decimal = if (RND.nextBoolean()) factory.valueOf(value) else factory.newMutable().set(value)
+        val jvmFactory = factory.toJvm()
+        val decimal = if (RND.nextBoolean()) jvmFactory.valueOf(value) else factory.newMutable().set(value)
         return if (RND.nextBoolean()) decimal.toBigInteger() else decimal.toBigIntegerExact()
     }
 

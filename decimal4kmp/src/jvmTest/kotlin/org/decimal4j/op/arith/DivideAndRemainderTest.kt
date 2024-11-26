@@ -35,8 +35,8 @@ import org.decimal4j.truncate.OverflowMode
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import java.math.BigDecimal
-import org.decimal4j.api.RoundingMode
-import org.decimal4j.api.toJavaRoundingMode
+import org.decimal4j.truncate.RoundingMode
+import org.decimal4j.arithmetic.toJavaRoundingMode
 
 /**
  * Unit test for [Decimal.divideAndRemainder]
@@ -44,7 +44,7 @@ import org.decimal4j.api.toJavaRoundingMode
 @RunWith(Parameterized::class)
 class DivideAndRemainderTest(scaleMetrics: ScaleMetrics?, overflowMode: OverflowMode?, arithmetic: DecimalArithmetic) :
     AbstractDecimalDecimalToAnyTest<Array<out Any?>>(arithmetic) {
-    override fun operation(): String? {
+    override fun operation(): String {
         return "divideAndRemainder"
     }
 
@@ -74,8 +74,8 @@ class DivideAndRemainderTest(scaleMetrics: ScaleMetrics?, overflowMode: Overflow
         var expected1: ArithmeticResult<Long>
         try {
             val exp: Array<BigDecimal> = expectedResult(bdOpA, bdOpB)
-            expected0 = forResult(arithmetic, exp[0]!!)
-            expected1 = forResult(arithmetic, exp[1]!!)
+            expected0 = forResult(arithmetic, exp[0])
+            expected1 = forResult(arithmetic, exp[1])
         } catch (e: ArithmeticException) {
             expected0 = forException(e)
             expected1 = forException(e)
@@ -94,8 +94,8 @@ class DivideAndRemainderTest(scaleMetrics: ScaleMetrics?, overflowMode: Overflow
         }
 
         //assert
-        actual0.assertEquivalentTo(expected0!!, messagePrefix0)
-        actual1.assertEquivalentTo(expected1!!, messagePrefix1)
+        actual0.assertEquivalentTo(expected0, messagePrefix0)
+        actual1.assertEquivalentTo(expected1, messagePrefix1)
     }
 
     companion object {

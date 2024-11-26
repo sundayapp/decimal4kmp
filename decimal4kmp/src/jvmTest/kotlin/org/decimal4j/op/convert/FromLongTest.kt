@@ -35,6 +35,9 @@ import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import java.lang.reflect.InvocationTargetException
 import java.math.BigDecimal
+import kotlin.reflect.full.companionObject
+import kotlin.reflect.full.companionObjectInstance
+import kotlin.reflect.full.memberFunctions
 
 /**
  * Test [DecimalArithmetic.fromLong],
@@ -94,8 +97,12 @@ class FromLongTest(sm: ScaleMetrics?, arithmetic: DecimalArithmetic) : AbstractL
 
     private fun <S : ScaleMetrics> valueOf(scaleMetrics: S, operand: Long): Decimal<S> {
         try {
-            val clazz = Class.forName(immutableClassName)
-            return clazz.getMethod("valueOf", Long::class.javaPrimitiveType).invoke(null, operand) as Decimal<S>
+            val kClass = Class.forName(immutableClassName).kotlin
+            return kClass.companionObject!!.memberFunctions.first {
+                it.name == "valueOf" &&
+                        it.parameters.size == 2 &&
+                        it.parameters[1].type.classifier == Long::class
+            }.call(kClass.companionObjectInstance, operand) as Decimal<S>
         } catch (e: InvocationTargetException) {
             if (e.targetException is RuntimeException) {
                 throw (e.targetException as RuntimeException)

@@ -9,5 +9,5 @@ jmh-benchmarks
 decimal4j.iml
 local.properties
 decimal4kmp/build
-annotations/build
+processor/build
 .kotlin

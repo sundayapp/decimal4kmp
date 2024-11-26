@@ -38,6 +38,9 @@ import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import java.lang.reflect.InvocationTargetException
 import java.math.BigDecimal
+import kotlin.reflect.full.companionObject
+import kotlin.reflect.full.companionObjectInstance
+import kotlin.reflect.full.memberFunctions
 
 /**
  * Unit test for [Decimal.multiplyExact]
@@ -232,15 +235,18 @@ class MultiplyExactTest(private val scaleMetrics1: ScaleMetrics?, private val sc
                 factorA.javaClass.getMethod("multiplyExact").invoke(factorA)
             } else {
                 //return Multiplier.multiplyExact(factorA)
-                Multiplier::class.java.getMethod("multiplyExact", factorA.javaClass).invoke(null, factorA)
+                Multiplier::class.memberFunctions.first {
+                    it.name =="multiplyExact" && it.parameters.size == 2 && it.parameters[1].type.classifier == factorA::class
+                }.call(Multiplier::class.objectInstance, factorA)!!
             }
         }
 
-        @Throws(Exception::class)
         private fun immutable(value: Decimal<*>): Decimal<*> {
             val className = Decimal0f::class.java.name.replace("0", value.scale.toString())
-            val clazz = Class.forName(className)
-            val instance = clazz.getMethod("valueOf", Decimal::class.java).invoke(null, value)
+            val clazz = Class.forName(className).kotlin
+            val kFunction = clazz.companionObject!!.memberFunctions.first { it.name == "valueOf" && it.parameters.size == 2 && it.parameters[1].type.classifier == Decimal::class }
+
+            val instance = kFunction.call(clazz.companionObjectInstance, value)
             return Decimal::class.java.cast(instance)
         }
 

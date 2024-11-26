@@ -23,6 +23,7 @@
  */
 package org.decimal4j.op
 
+import org.decimal4j.api.BigDecimalExtensions.toBigDecimal
 import org.decimal4j.api.Decimal
 import org.decimal4j.api.DecimalArithmetic
 import org.decimal4j.scale.ScaleMetrics

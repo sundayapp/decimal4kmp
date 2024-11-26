@@ -23,10 +23,6 @@
  */
 package org.decimal4j.arithmetic
 
-import org.decimal4j.arithmetic.CheckedScale0fRoundingArithmetic
-import org.decimal4j.arithmetic.CheckedScaleNfRoundingArithmetic
-import org.decimal4j.arithmetic.UncheckedScale0fRoundingArithmetic
-import org.decimal4j.arithmetic.UncheckedScaleNfRoundingArithmetic
 import org.decimal4j.test.AbstractFinalTest
 import org.junit.Assert
 import org.junit.Test
@@ -123,7 +119,6 @@ class FinalClassTest
             data.add(arrayOf(Square::class.java))
             data.add(arrayOf(StringConversion::class.java))
             data.add(arrayOf(Sub::class.java))
-            data.add(arrayOf(ThreadLocals::class.java))
             data.add(arrayOf(UncheckedScale0fRoundingArithmetic::class.java))
             data.add(arrayOf(UncheckedScale0fTruncatingArithmetic::class.java))
             data.add(arrayOf(UncheckedScaleNfRoundingArithmetic::class.java))

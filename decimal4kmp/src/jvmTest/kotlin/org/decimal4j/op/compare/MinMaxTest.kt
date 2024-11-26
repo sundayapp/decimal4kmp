@@ -43,9 +43,9 @@ import kotlin.collections.ArrayList
 @RunWith(Parameterized::class)
 class MinMaxTest(
     scaleMetrics: ScaleMetrics?,
-    private val op: org.decimal4j.op.compare.MinMaxTest.Op,
-    private val mutability: _root_ide_package_.org.decimal4j.op.compare.MinMaxTest.Mutability,
-    private val overloadVariant: _root_ide_package_.org.decimal4j.op.compare.MinMaxTest.OverloadVariant,
+    private val op: Op,
+    private val mutability: Mutability,
+    private val overloadVariant: OverloadVariant,
     arithmetic: DecimalArithmetic
 ) :
     AbstractDecimalDecimalToDecimalTest(arithmetic) {
@@ -66,7 +66,7 @@ class MinMaxTest(
     }
 
     private val isMin: Boolean
-        get() = op == _root_ide_package_.org.decimal4j.op.compare.MinMaxTest.Op.Min
+        get() = op == Op.Min
 
     override fun <S : ScaleMetrics> newDecimal(
         scaleMetrics: S,
@@ -74,9 +74,8 @@ class MinMaxTest(
     ): Decimal<S> {
         val decimal = super.newDecimal(scaleMetrics, unscaled)
         return when (mutability) {
-            _root_ide_package_.org.decimal4j.op.compare.MinMaxTest.Mutability.Immutable -> decimal.toImmutableDecimal()
-            _root_ide_package_.org.decimal4j.op.compare.MinMaxTest.Mutability.Mutable -> decimal.toMutableDecimal()
-            else -> throw RuntimeException("unsupported mutability: $mutability")
+            Mutability.Immutable -> decimal.toImmutableDecimal()
+            Mutability.Mutable -> decimal.toMutableDecimal()
         }
     }
 
@@ -86,8 +85,8 @@ class MinMaxTest(
 
     override fun <S : ScaleMetrics> actualResult(a: Decimal<S>, b: Decimal<S>): Decimal<S> {
         when (overloadVariant) {
-            _root_ide_package_.org.decimal4j.op.compare.MinMaxTest.OverloadVariant.Decimal -> return if (isMin) a.min(b) else a.max(b)
-            _root_ide_package_.org.decimal4j.op.compare.MinMaxTest.OverloadVariant.ImmutableMutable -> return if (a is ImmutableDecimal<*> && b is ImmutableDecimal<*>) {
+            OverloadVariant.Decimal -> return if (isMin) a.min(b) else a.max(b)
+            OverloadVariant.ImmutableMutable -> return if (a is ImmutableDecimal<*> && b is ImmutableDecimal<*>) {
                 if (isMin) (a as ImmutableDecimal<S>).min(b as ImmutableDecimal<S>) else (a as ImmutableDecimal<S>).max(
                     b as ImmutableDecimal<S>
                 )
@@ -97,16 +96,13 @@ class MinMaxTest(
                 throw IllegalArgumentException("a and b should have same mutability")
             }
 
-            _root_ide_package_.org.decimal4j.op.compare.MinMaxTest.OverloadVariant.Concrete -> {
+            OverloadVariant.Concrete -> {
                 val type: Class<*> = a.javaClass
-                val ret: Any
                 try {
-                    ret = type.getMethod(operation(), AbstractDecimal::class.java).invoke(a, b)
+                    return type.getMethod(operation(), AbstractDecimal::class.java).invoke(a, b) as Decimal<S>
                 } catch (e: Exception) {
                     throw RuntimeException(e)
                 }
-                val dec = ret as Decimal<S>
-                return dec
             }
 
             else -> throw RuntimeException("unknown overflow variant: $overloadVariant")
@@ -119,9 +115,9 @@ class MinMaxTest(
         fun data(): Iterable<Array<Any>> {
             val data: MutableList<Array<Any>> = ArrayList()
             for (s in TestSettings.SCALES) {
-                for (op in _root_ide_package_.org.decimal4j.op.compare.MinMaxTest.Op.entries) {
-                    for (mutability in _root_ide_package_.org.decimal4j.op.compare.MinMaxTest.Mutability.entries) {
-                        for (variant in _root_ide_package_.org.decimal4j.op.compare.MinMaxTest.OverloadVariant.entries) {
+                for (op in Op.entries) {
+                    for (mutability in Mutability.entries) {
+                        for (variant in OverloadVariant.entries) {
                             data.add(arrayOf(s, op, mutability, variant, s.getDefaultArithmetic()))
                         }
                     }

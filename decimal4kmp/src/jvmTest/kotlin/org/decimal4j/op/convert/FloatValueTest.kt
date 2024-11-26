@@ -32,7 +32,7 @@ import org.decimal4j.truncate.OverflowMode
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import java.math.BigDecimal
-import org.decimal4j.api.RoundingMode
+import org.decimal4j.truncate.RoundingMode
 import kotlin.math.nextTowards
 
 /**
@@ -90,7 +90,7 @@ class FloatValueTest(scaleMetrics: ScaleMetrics?, rounding: RoundingMode?, arith
 
     override fun <S : ScaleMetrics> actualResult(operand: Decimal<S>): Float {
         if (roundingMode == RoundingMode.HALF_EVEN && RND.nextBoolean()) {
-            return operand.floatValue()
+            return operand.toFloat()
         }
         if (RND.nextBoolean()) {
             return operand.floatValue(roundingMode)

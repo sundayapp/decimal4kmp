@@ -82,7 +82,7 @@ abstract class AbstractLongValueToDecimalTest
         //actual
         var actual: ArithmeticResult<Long>
         try {
-            actual = forResult(actualResult(scaleMetrics, operand)!!)
+            actual = forResult(actualResult(scaleMetrics, operand))
         } catch (e: ArithmeticException) {
             actual = forException(e)
         } catch (e: IllegalArgumentException) {
@@ -91,6 +91,6 @@ abstract class AbstractLongValueToDecimalTest
 
 
         //assert
-        actual.assertEquivalentTo(expected!!, messagePrefix)
+        actual.assertEquivalentTo(expected, messagePrefix)
     }
 }

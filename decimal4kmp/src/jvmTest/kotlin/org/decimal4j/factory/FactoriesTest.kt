@@ -23,15 +23,13 @@
  */
 package org.decimal4j.factory
 
-import org.decimal4j.api.ImmutableDecimal
-import org.decimal4j.api.MutableDecimal
-import org.decimal4j.generic.GenericImmutableDecimal
-import org.decimal4j.generic.GenericMutableDecimal
 import org.decimal4j.immutable.Decimal0f
 import org.decimal4j.mutable.MutableDecimal0f
 import org.decimal4j.scale.Scales
 import org.junit.Assert
 import org.junit.Test
+import kotlin.reflect.full.companionObject
+import kotlin.reflect.full.companionObjectInstance
 
 /**
  * Unit test for [Factories] and implementations of [DecimalFactory].
@@ -167,19 +165,12 @@ class FactoriesTest {
     }
 
     @Test
-    @Throws(Exception::class)
     fun testFactorySingleton() {
         for (factory in Factories.VALUES) {
             //when
-            val instance = factory.javaClass.getMethod("valueOf", String::class.java).invoke(null, "INSTANCE")
+            val instance = factory::class.companionObject!!.members.first { it.name =="INSTANCE" }.call(factory::class.companionObjectInstance)
             //then
             Assert.assertSame("should be factory instance", factory, instance)
-            //when
-            val instances = factory.javaClass.getMethod("values").invoke(null)
-            //then
-            Assert.assertTrue("should be an array", instances is Array<*> && instances.isArrayOf<Any>())
-            Assert.assertEquals("should be array length 1", 1, (instances as Array<Any?>).size.toLong())
-            Assert.assertSame("should be same factory", factory, instances[0])
         }
     }
 }

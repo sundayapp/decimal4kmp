@@ -32,7 +32,7 @@ import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
-import org.decimal4j.api.RoundingMode
+import org.decimal4j.truncate.RoundingMode
 import kotlin.math.abs
 import kotlin.math.ceil
 import kotlin.random.Random

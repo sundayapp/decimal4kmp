@@ -34,7 +34,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import java.math.BigDecimal
-import org.decimal4j.api.RoundingMode
+import org.decimal4j.truncate.RoundingMode
 import kotlin.math.nextTowards
 
 /**
@@ -101,7 +101,7 @@ class DoubleValueTest(scaleMetrics: ScaleMetrics?, rounding: RoundingMode?, arit
 
     override fun <S : ScaleMetrics> actualResult(operand: Decimal<S>): Double {
         if (roundingMode == RoundingMode.HALF_EVEN && RND.nextBoolean()) {
-            return operand.doubleValue()
+            return operand.toDouble()
         }
         if (RND.nextBoolean()) {
             return operand.doubleValue(roundingMode)

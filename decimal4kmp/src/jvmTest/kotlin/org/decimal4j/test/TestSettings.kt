@@ -25,7 +25,7 @@ package org.decimal4j.test
 
 import org.decimal4j.scale.ScaleMetrics
 import org.decimal4j.truncate.TruncationPolicy
-import org.decimal4j.api.RoundingMode
+import org.decimal4j.truncate.RoundingMode
 
 /**
  * Test settings for unit tests, defines the scales to test and the size of the

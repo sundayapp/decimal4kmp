@@ -47,7 +47,7 @@ class IntValueTest(scaleMetrics: ScaleMetrics?, private val exact: Boolean, arit
     }
 
     override fun <S : ScaleMetrics> actualResult(operand: Decimal<S>): Int {
-        return if (exact) operand.intValueExact() else operand.intValue()
+        return if (exact) operand.intValueExact() else operand.toInt()
     }
 
     companion object {

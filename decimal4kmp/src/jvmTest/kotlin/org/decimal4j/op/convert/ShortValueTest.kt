@@ -48,7 +48,7 @@ class ShortValueTest(scaleMetrics: ScaleMetrics?, private val exact: Boolean, ar
     }
 
     override fun <S : ScaleMetrics> actualResult(operand: Decimal<S>): Short {
-        return if (exact) operand.shortValueExact() else operand.shortValue()
+        return if (exact) operand.shortValueExact() else operand.toShort()
     }
 
     companion object {

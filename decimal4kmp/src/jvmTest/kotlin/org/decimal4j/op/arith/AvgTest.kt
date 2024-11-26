@@ -32,8 +32,8 @@ import org.decimal4j.truncate.CheckedRounding
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import java.math.BigDecimal
-import org.decimal4j.api.RoundingMode
-import org.decimal4j.api.toJavaRoundingMode
+import org.decimal4j.truncate.RoundingMode
+import org.decimal4j.arithmetic.toJavaRoundingMode
 
 /**
  * Unit test for [Decimal.avg] and [Decimal.avg]
@@ -46,7 +46,7 @@ class AvgTest(scaleMetrics: ScaleMetrics?, roundingMode: RoundingMode?, arithmet
     }
 
     override fun expectedResult(a: BigDecimal, b: BigDecimal): BigDecimal {
-        return a.add(b).divide(org.decimal4j.op.arith.AvgTest.Companion.TWO, roundingMode.toJavaRoundingMode())
+        return a.add(b).divide(TWO, roundingMode.toJavaRoundingMode())
     }
 
     override fun <S : ScaleMetrics> actualResult(a: Decimal<S>, b: Decimal<S>): Decimal<S> {
@@ -57,7 +57,7 @@ class AvgTest(scaleMetrics: ScaleMetrics?, roundingMode: RoundingMode?, arithmet
             return a.avg(b, roundingMode)
         }
         //also test checked arithmetic otherwise this is not covered
-        val checkedAith = a.scaleMetrics!!.getArithmetic(CheckedRounding.valueOf(roundingMode))
+        val checkedAith = a.scaleMetrics.getArithmetic(CheckedRounding.valueOf(roundingMode))
         return newDecimal(a.scaleMetrics, checkedAith.avg(a.unscaledValue(), b.unscaledValue()))
     }
 

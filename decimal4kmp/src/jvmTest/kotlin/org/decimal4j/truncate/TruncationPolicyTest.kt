@@ -25,7 +25,6 @@ package org.decimal4j.truncate
 
 import org.junit.Assert
 import org.junit.Test
-import org.decimal4j.api.RoundingMode
 
 /**
  * Unit test for [TruncationPolicy].

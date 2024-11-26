@@ -25,8 +25,10 @@ package org.decimal4j.op.convert
 
 import org.decimal4j.api.Decimal
 import org.decimal4j.api.DecimalArithmetic
+import org.decimal4j.api.DecimalArithmeticExtensions.fromBigInteger
 import org.decimal4j.api.MutableDecimal
-import org.decimal4j.api.toJavaRoundingMode
+import org.decimal4j.api.MutableDecimalJvm.set
+import org.decimal4j.arithmetic.toJavaRoundingMode
 import org.decimal4j.factory.DecimalFactory
 import org.decimal4j.op.AbstractBigIntegerToDecimalTest
 import org.decimal4j.scale.ScaleMetrics
@@ -36,6 +38,8 @@ import org.junit.runners.Parameterized
 import java.lang.reflect.InvocationTargetException
 import java.math.BigDecimal
 import java.math.BigInteger
+import kotlin.reflect.full.companionObjectInstance
+import kotlin.reflect.full.functions
 
 /**
  * Test [DecimalArithmetic.fromBigInteger] via
@@ -59,7 +63,7 @@ class FromBigIntegerTest(s: ScaleMetrics?, arithmetic: DecimalArithmetic) :
     override fun <S : ScaleMetrics> actualResult(scaleMetrics: S, operand: BigInteger): Decimal<S> {
         return when (RND.nextInt(4)) {
             0 ->            //Factory, immutable
-                getDecimalFactory(scaleMetrics).valueOf(operand)
+                getDecimalFactory(scaleMetrics).toJvm().valueOf(operand)
 
             1 ->            //Factory, mutable
                 getDecimalFactory(scaleMetrics).newMutable().set(operand)
@@ -77,8 +81,11 @@ class FromBigIntegerTest(s: ScaleMetrics?, arithmetic: DecimalArithmetic) :
 
     private fun <S : ScaleMetrics> newMutableInstance(scaleMetrics: S, operand: BigInteger): Decimal<S> {
         try {
-            val clazz = Class.forName(mutableClassName) as Class<Decimal<S>>
-            return clazz.getConstructor(BigInteger::class.java).newInstance(operand)
+            val clazz = Class.forName(mutableClassName) as Class<MutableDecimal<S>>
+            val mutableDecimal = clazz.getConstructor().newInstance() as MutableDecimal<S>
+            return mutableDecimal.set(operand)
+        } catch (e: RuntimeException) {
+            throw e
         } catch (e: InvocationTargetException) {
             if (e.targetException is RuntimeException) {
                 throw (e.targetException as RuntimeException)
@@ -91,8 +98,15 @@ class FromBigIntegerTest(s: ScaleMetrics?, arithmetic: DecimalArithmetic) :
 
     private fun <S : ScaleMetrics> valueOf(scaleMetrics: S, operand: BigInteger): Decimal<S> {
         try {
-            val clazz = Class.forName(immutableClassName)
-            return clazz.getMethod("valueOf", BigInteger::class.java).invoke(null, operand) as Decimal<S>
+            val clazz = Class.forName(immutableExtensionClassName)
+            val clazz2 = Class.forName(immutableClassName)
+            val companionInstance = clazz2.kotlin.companionObjectInstance
+            val kFunction = clazz.kotlin.functions.find {
+                it.name == "valueOf" &&
+                        it.parameters.size == 3 &&
+                        it.parameters[2].type.classifier == BigInteger::class
+            }!!
+            return kFunction.call(clazz.kotlin.objectInstance, companionInstance, operand) as Decimal<S>
         } catch (e: InvocationTargetException) {
             if (e.targetException is RuntimeException) {
                 throw (e.targetException as RuntimeException)

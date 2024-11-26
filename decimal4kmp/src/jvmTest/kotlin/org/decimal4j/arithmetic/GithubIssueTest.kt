@@ -27,8 +27,8 @@ import org.decimal4j.scale.Scales
 import org.junit.Assert
 import org.junit.Test
 import java.math.BigDecimal
-import org.decimal4j.api.RoundingMode
-import org.decimal4j.api.toJavaRoundingMode
+import org.decimal4j.truncate.RoundingMode
+
 
 /**
  * Unit test addressing issues raised on github.

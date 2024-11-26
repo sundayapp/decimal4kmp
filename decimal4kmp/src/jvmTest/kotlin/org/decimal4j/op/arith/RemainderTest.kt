@@ -38,9 +38,6 @@ import java.math.BigDecimal
 @RunWith(Parameterized::class)
 class RemainderTest(scaleMetrics: ScaleMetrics?, arithmetic: DecimalArithmetic) :
     AbstractDecimalDecimalToDecimalTest(arithmetic) {
-    override fun runSpecialValueTest() {
-        super.runSpecialValueTest()
-    }
 
     override fun operation(): String {
         return "%"

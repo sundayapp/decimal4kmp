@@ -26,7 +26,7 @@ package org.decimal4j.arithmetic
 import org.decimal4j.truncate.DecimalRounding
 import org.junit.Assert
 import org.junit.Test
-import org.decimal4j.api.RoundingMode
+import org.decimal4j.truncate.RoundingMode
 
 /**
  * Unit test for [DecimalRounding.valueOf]

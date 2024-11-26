@@ -70,7 +70,7 @@ abstract class AbstractDecimalToDecimalTest
         //expected
         var expected: ArithmeticResult<Long>
         try {
-            expected = forResult(arithmetic, expectedResult(bdOperand)!!)
+            expected = forResult(arithmetic, expectedResult(bdOperand))
         } catch (e: ArithmeticException) {
             expected = forException(e)
         } catch (e: IllegalArgumentException) {
@@ -80,7 +80,7 @@ abstract class AbstractDecimalToDecimalTest
         //actual
         var actual: ArithmeticResult<Long>
         try {
-            actual = forResult(actualResult(dOperand)!!)
+            actual = forResult(actualResult(dOperand))
         } catch (e: ArithmeticException) {
             actual = forException(e)
         } catch (e: IllegalArgumentException) {

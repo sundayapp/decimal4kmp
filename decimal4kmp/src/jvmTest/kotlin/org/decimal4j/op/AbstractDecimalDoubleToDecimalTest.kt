@@ -24,6 +24,7 @@
 package org.decimal4j.op
 
 import org.decimal4j.api.DecimalArithmetic
+import org.decimal4j.arithmetic.toJavaRoundingMode
 import org.decimal4j.op.util.FloatAndDoubleUtil.doubleToBigDecimal
 import org.decimal4j.scale.ScaleMetrics
 import org.decimal4j.test.TestSettings
@@ -31,8 +32,7 @@ import org.decimal4j.truncate.TruncationPolicy
 import org.junit.runners.Parameterized
 import java.math.BigDecimal
 import java.math.MathContext
-import org.decimal4j.api.RoundingMode
-import org.decimal4j.api.toJavaRoundingMode
+import org.decimal4j.truncate.RoundingMode
 
 /**
  * Base class for unit tests with a double operand.

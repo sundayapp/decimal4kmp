@@ -32,7 +32,7 @@ import org.decimal4j.test.TestSettings
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import java.math.BigDecimal
-import org.decimal4j.api.RoundingMode
+import org.decimal4j.truncate.RoundingMode
 
 /**
  * Unit test for [Decimal.abs]

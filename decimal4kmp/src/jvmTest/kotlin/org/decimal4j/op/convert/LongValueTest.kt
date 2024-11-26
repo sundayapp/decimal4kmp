@@ -32,8 +32,8 @@ import org.decimal4j.truncate.OverflowMode
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import java.math.BigDecimal
-import org.decimal4j.api.RoundingMode
-import org.decimal4j.api.toJavaRoundingMode
+import org.decimal4j.truncate.RoundingMode
+import org.decimal4j.arithmetic.toJavaRoundingMode
 
 /**
  * Unit test for [Decimal.longValue], [Decimal.longValueExact]
@@ -66,7 +66,7 @@ class LongValueTest(
             return operand.longValueExact()
         }
         if (isRoundingDown && RND.nextBoolean()) {
-            return operand.longValue()
+            return operand.toLong()
         }
         if (RND.nextBoolean()) {
             return operand.longValue(roundingMode)

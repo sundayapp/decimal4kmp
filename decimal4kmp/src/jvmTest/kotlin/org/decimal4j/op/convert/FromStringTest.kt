@@ -36,8 +36,11 @@ import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import java.lang.reflect.InvocationTargetException
 import java.math.BigDecimal
-import org.decimal4j.api.RoundingMode
-import org.decimal4j.api.toJavaRoundingMode
+import org.decimal4j.truncate.RoundingMode
+import org.decimal4j.arithmetic.toJavaRoundingMode
+import kotlin.reflect.full.companionObject
+import kotlin.reflect.full.companionObjectInstance
+import kotlin.reflect.full.memberFunctions
 
 /**
  * Test [DecimalArithmetic.parse] via
@@ -268,14 +271,20 @@ class FromStringTest(s: ScaleMetrics?, mode: RoundingMode?, arithmetic: DecimalA
 
     private fun <S : ScaleMetrics> valueOf(scaleMetrics: S, operand: String?): Decimal<S> {
         try {
-            val clazz = Class.forName(immutableClassName)
+            val kClass = Class.forName(immutableClassName).kotlin
             return if (isRoundingDefault && RND.nextBoolean()) {
-                clazz.getMethod("valueOf", String::class.java).invoke(null, operand) as Decimal<S>
+                kClass.companionObject!!.memberFunctions.first {
+                    it.name == "valueOf" &&
+                            it.parameters.size == 2 &&
+                            it.parameters[1].type.classifier == String::class
+                }.call(kClass.companionObjectInstance, operand) as Decimal<S>
             } else {
-                clazz.getMethod("valueOf", String::class.java, RoundingMode::class.java).invoke(
-                    null, operand,
-                    roundingMode
-                ) as Decimal<S>
+                kClass.companionObject!!.memberFunctions.first {
+                    it.name == "valueOf" &&
+                            it.parameters.size == 3 &&
+                            it.parameters[1].type.classifier == String::class &&
+                            it.parameters[2].type.classifier == RoundingMode::class
+                }.call(kClass.companionObjectInstance, operand, roundingMode) as Decimal<S>
             }
         } catch (e: InvocationTargetException) {
             if (e.targetException is RuntimeException) {

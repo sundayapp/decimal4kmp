@@ -85,7 +85,7 @@ abstract class AbstractDecimalDoubleValueToDecimalTest
         //expected
         var expected: ArithmeticResult<Long>
         try {
-            expected = forResult(arithmetic, expectedResult(bdOperandA, b)!!)
+            expected = forResult(arithmetic, expectedResult(bdOperandA, b))
         } catch (e: ArithmeticException) {
             expected = forException(e)
         } catch (e: IllegalArgumentException) {
@@ -95,7 +95,7 @@ abstract class AbstractDecimalDoubleValueToDecimalTest
         //actual
         var actual: ArithmeticResult<Long>
         try {
-            actual = forResult(actualResult(dOperandA, b)!!)
+            actual = forResult(actualResult(dOperandA, b))
         } catch (e: ArithmeticException) {
             actual = forException(e)
         } catch (e: IllegalArgumentException) {
@@ -104,6 +104,6 @@ abstract class AbstractDecimalDoubleValueToDecimalTest
 
 
         //assert
-        actual.assertEquivalentTo(expected!!, messagePrefix)
+        actual.assertEquivalentTo(expected, messagePrefix)
     }
 }

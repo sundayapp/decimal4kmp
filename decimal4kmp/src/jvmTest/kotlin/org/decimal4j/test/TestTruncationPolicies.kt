@@ -26,7 +26,7 @@ package org.decimal4j.test
 import org.decimal4j.truncate.CheckedRounding
 import org.decimal4j.truncate.TruncationPolicy
 import org.decimal4j.truncate.UncheckedRounding
-import org.decimal4j.api.RoundingMode
+import org.decimal4j.truncate.RoundingMode
 
 enum class TestTruncationPolicies(val policies: Collection<TruncationPolicy>) {
     TINY(

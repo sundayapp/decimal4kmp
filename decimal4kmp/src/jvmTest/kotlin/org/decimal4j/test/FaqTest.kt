@@ -30,7 +30,7 @@ import org.decimal4j.mutable.MutableDecimal2f
 import org.decimal4j.scale.Scale2f
 import org.decimal4j.scale.Scale4f
 import org.junit.Test
-import org.decimal4j.api.RoundingMode
+import org.decimal4j.truncate.RoundingMode
 
 
 class FaqTest {

@@ -86,7 +86,7 @@ abstract class AbstractDecimalDecimalToDecimalTest
         // actual
         var actual: ArithmeticResult<Long>
         try {
-            actual = forResult(actualResult(dOpA, dOpB)!!)
+            actual = forResult(actualResult(dOpA, dOpB))
         } catch (e: IllegalArgumentException) {
             actual = forException(e)
         } catch (e: ArithmeticException) {

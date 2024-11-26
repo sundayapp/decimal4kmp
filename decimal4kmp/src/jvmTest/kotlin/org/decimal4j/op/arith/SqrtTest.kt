@@ -23,6 +23,7 @@
  */
 package org.decimal4j.op.arith
 
+import org.decimal4j.api.BigDecimalExtensions.toBigDecimal
 import org.decimal4j.api.Decimal
 import org.decimal4j.api.DecimalArithmetic
 import org.decimal4j.op.AbstractRandomAndSpecialValueTest
@@ -36,8 +37,8 @@ import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import java.math.BigDecimal
 import java.math.BigInteger
-import org.decimal4j.api.RoundingMode
-import org.decimal4j.api.toJavaRoundingMode
+import org.decimal4j.truncate.RoundingMode
+import org.decimal4j.arithmetic.toJavaRoundingMode
 
 /**
  * Unit test for [Decimal.invert]
@@ -45,13 +46,6 @@ import org.decimal4j.api.toJavaRoundingMode
 @RunWith(Parameterized::class)
 class SqrtTest(scaleMetrics: ScaleMetrics?, roundingMode: RoundingMode?, arithmetic: DecimalArithmetic) :
     AbstractRandomAndSpecialValueTest(arithmetic) {
-    override fun runRandomTest() {
-        super.runRandomTest()
-    }
-
-    override fun runSpecialValueTest() {
-        super.runSpecialValueTest()
-    }
 
     @Test
     fun runProblemTest0_offByOne() {
@@ -163,7 +157,7 @@ class SqrtTest(scaleMetrics: ScaleMetrics?, roundingMode: RoundingMode?, arithme
             return operand.sqrt(roundingMode)
         }
         //also test checked arithmetic otherwise this is not covered
-        val checkedAith = operand.scaleMetrics!!.getCheckedArithmetic(roundingMode)
+        val checkedAith = operand.scaleMetrics.getCheckedArithmetic(roundingMode)
         return newDecimal(operand.scaleMetrics, checkedAith.sqrt(operand.unscaledValue()))
     }
 

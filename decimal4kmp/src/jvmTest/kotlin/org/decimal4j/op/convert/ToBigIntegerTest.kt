@@ -23,6 +23,8 @@
  */
 package org.decimal4j.op.convert
 
+import org.decimal4j.api.BigIntegerExtension.toBigInteger
+import org.decimal4j.api.BigIntegerExtension.toBigIntegerExact
 import org.decimal4j.api.Decimal
 import org.decimal4j.api.DecimalArithmetic
 import org.decimal4j.op.AbstractDecimalToAnyTest
@@ -32,8 +34,8 @@ import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import java.math.BigDecimal
 import java.math.BigInteger
-import org.decimal4j.api.RoundingMode
-import org.decimal4j.api.toJavaRoundingMode
+import org.decimal4j.truncate.RoundingMode
+import org.decimal4j.arithmetic.toJavaRoundingMode
 
 /**
  * Unit test for [Decimal.toBigInteger], [Decimal.toBigIntegerExact]

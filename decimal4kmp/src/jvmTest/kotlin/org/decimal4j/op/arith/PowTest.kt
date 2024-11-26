@@ -35,8 +35,8 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import java.math.BigDecimal
-import org.decimal4j.api.RoundingMode
-import org.decimal4j.api.toJavaRoundingMode
+import org.decimal4j.truncate.RoundingMode
+import org.decimal4j.arithmetic.toJavaRoundingMode
 import kotlin.math.abs
 import kotlin.math.ln
 import kotlin.math.max
@@ -49,7 +49,7 @@ import kotlin.math.min
 class PowTest(scaleMetrics: ScaleMetrics?, truncationPolicy: TruncationPolicy?, arithmetic: DecimalArithmetic) :
     AbstractDecimalIntToDecimalTest(arithmetic) {
     override fun <S : ScaleMetrics> randomDecimal(scaleMetrics: S): Decimal<S> {
-        val one = scaleMetrics!!.getScaleFactor()
+        val one = scaleMetrics.getScaleFactor()
         //		final long unscaled = one * (4 - RND.nextInt(9)) + one - RND.nextLong(2*one + 1);
         val unscaled = one * (8 - RND.nextInt(17)) + one - RND.nextLong(2 * one + 1)
         return newDecimal(scaleMetrics, unscaled)
@@ -66,7 +66,7 @@ class PowTest(scaleMetrics: ScaleMetrics?, truncationPolicy: TruncationPolicy?, 
             abs(1.0 / decimalOperand.doubleValue(RoundingMode.DOWN))
         }
         val maxPow = if (absBase >= 1) {
-            (ln(decimalOperand.scaleMetrics!!.getMaxIntegerValue().toDouble()) / max(
+            (ln(decimalOperand.scaleMetrics.getMaxIntegerValue().toDouble()) / max(
                 1e-10,
                 ln(absBase)
             )).toInt()

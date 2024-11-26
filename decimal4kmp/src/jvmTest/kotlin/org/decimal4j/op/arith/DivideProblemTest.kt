@@ -30,7 +30,7 @@ import org.decimal4j.truncate.TruncationPolicy
 import org.decimal4j.truncate.UncheckedRounding
 import org.junit.Test
 import org.junit.runners.Parameterized
-import org.decimal4j.api.RoundingMode
+import org.decimal4j.truncate.RoundingMode
 
 class DivideProblemTest(
     scaleMetrics: ScaleMetrics?,

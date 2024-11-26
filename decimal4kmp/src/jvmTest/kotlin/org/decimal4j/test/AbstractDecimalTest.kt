@@ -33,8 +33,9 @@ import org.decimal4j.scale.ScaleMetrics
 import org.decimal4j.truncate.OverflowMode
 import org.decimal4j.truncate.TruncationPolicy
 import java.math.MathContext
-import org.decimal4j.api.RoundingMode
-import org.decimal4j.api.toJavaRoundingMode
+import org.decimal4j.truncate.RoundingMode
+import org.decimal4j.arithmetic.toJavaRoundingMode
+import org.decimal4j.immutable.Decimal0fExtensions
 import kotlin.random.Random
 
 /**
@@ -95,6 +96,9 @@ abstract class AbstractDecimalTest(@JvmField protected val arithmetic: DecimalAr
 
     protected val immutableClassName: String
         get() = Decimal0f::class.java.name.replace("0f", getArithmeticScale().toString() + "f")
+
+    protected val immutableExtensionClassName: String
+        get() = Decimal0fExtensions::class.java.name.replace("0f", getArithmeticScale().toString() + "f")
 
     protected val mutableClassName: String
         get() = MutableDecimal0f::class.java.name.replace("0f", getArithmeticScale().toString() + "f")

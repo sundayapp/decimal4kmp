@@ -35,7 +35,10 @@ import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import java.lang.reflect.InvocationTargetException
 import java.math.BigDecimal
-import org.decimal4j.api.RoundingMode
+import org.decimal4j.truncate.RoundingMode
+import kotlin.reflect.full.companionObject
+import kotlin.reflect.full.companionObjectInstance
+import kotlin.reflect.full.memberFunctions
 
 /**
  * Test [DecimalArithmetic.fromUnscaled] via
@@ -56,7 +59,7 @@ class FromUnscaledTest(sm: ScaleMetrics?, rm: RoundingMode?, scale: Int, arithme
     }
 
     override fun <S : ScaleMetrics> actualResult(scaleMetrics: S, operand: Long): Decimal<S> {
-        val noScale = scale == scaleMetrics!!.getScale() && RND.nextBoolean()
+        val noScale = scale == scaleMetrics.getScale() && RND.nextBoolean()
         val factory = getDecimalFactory(scaleMetrics)
         when (RND.nextInt(5)) {
             0 ->            // Factory, immutable
@@ -95,11 +98,8 @@ class FromUnscaledTest(sm: ScaleMetrics?, rm: RoundingMode?, scale: Int, arithme
 
     private fun <S : ScaleMetrics> newMutableInstance(scaleMetrics: S, operand: Long): Decimal<S> {
         try {
-            val clazz = Class.forName(mutableClassName) as Class<Decimal<S>>
-            val result = clazz.getMethod(
-                "unscaled",
-                Long::class.javaPrimitiveType
-            ).invoke(null, operand) as Decimal<S>
+            val clazz = Class.forName(mutableClassName).kotlin
+            val result = clazz.companionObject!!.memberFunctions.first { it.name == "unscaled" }.call(clazz.companionObjectInstance, operand) as Decimal<S>
             return result
         } catch (e: InvocationTargetException) {
             if (e.targetException is RuntimeException) {
@@ -113,23 +113,30 @@ class FromUnscaledTest(sm: ScaleMetrics?, rm: RoundingMode?, scale: Int, arithme
 
     private fun <S : ScaleMetrics> valueOfUnscaled(scaleMetrics: S, operand: Long): Decimal<S> {
         try {
-            val clazz = Class.forName(immutableClassName)
+            val kClass = Class.forName(immutableClassName).kotlin
             return if (isRoundingDefault && RND.nextBoolean()) {
-                if (scale == scaleMetrics!!.getScale() && RND.nextBoolean()) {
-                    clazz.getMethod("valueOfUnscaled", Long::class.javaPrimitiveType) //
-                        .invoke(null, operand) as Decimal<S>
+                if (scale == scaleMetrics.getScale() && RND.nextBoolean()) {
+                    kClass.companionObject!!.memberFunctions.first {
+                        it.name == "valueOfUnscaled" &&
+                                it.parameters.size == 2 &&
+                                it.parameters[1].type.classifier == Long::class
+                    }.call(kClass.companionObjectInstance, operand) as Decimal<S>
                 } else {
-                    clazz.getMethod("valueOfUnscaled", Long::class.javaPrimitiveType, Int::class.javaPrimitiveType) //
-                        .invoke(null, operand, scale) as Decimal<S>
+                    kClass.companionObject!!.memberFunctions.first {
+                        it.name == "valueOfUnscaled" &&
+                                it.parameters.size == 3 &&
+                                it.parameters[1].type.classifier == Long::class &&
+                                it.parameters[2].type.classifier == Int::class
+                    }.call(kClass.companionObjectInstance, operand, scale) as Decimal<S>
                 }
             } else {
-                clazz.getMethod(
-                    "valueOfUnscaled",
-                    Long::class.javaPrimitiveType,
-                    Int::class.javaPrimitiveType,
-                    RoundingMode::class.java
-                ) //
-                    .invoke(null, operand, scale, roundingMode) as Decimal<S>
+                kClass.companionObject!!.memberFunctions.first {
+                    it.name == "valueOfUnscaled" &&
+                            it.parameters.size == 4 &&
+                            it.parameters[1].type.classifier == Long::class &&
+                            it.parameters[2].type.classifier == Int::class &&
+                            it.parameters[3].type.classifier == RoundingMode::class
+                }.call(kClass.companionObjectInstance, operand, scale, roundingMode) as Decimal<S>
             }
         } catch (e: InvocationTargetException) {
             if (e.targetException is RuntimeException) {

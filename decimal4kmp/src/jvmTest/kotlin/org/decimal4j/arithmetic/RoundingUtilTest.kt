@@ -24,9 +24,7 @@
 package org.decimal4j.arithmetic
 
 import org.decimal4j.truncate.TruncatedPart
-import org.junit.Assert
 import org.junit.Test
-import kotlin.math.abs
 import org.junit.Assert.assertEquals
 
 /**
@@ -35,54 +33,54 @@ import org.junit.Assert.assertEquals
 class RoundingUtilTest {
     @Test
     fun testRemainingZeroOfOne() {
-        assertEquals(TruncatedPart.ZERO, Rounding.truncatedPartFor(0, 1));
+        assertEquals(TruncatedPart.ZERO, Rounding.truncatedPartFor(0, 1))
     }
     @Test
     fun testRemainingOneOfTwo() {
-        assertEquals(TruncatedPart.EQUAL_TO_HALF, Rounding.truncatedPartFor(1, 2));
+        assertEquals(TruncatedPart.EQUAL_TO_HALF, Rounding.truncatedPartFor(1, 2))
     }
     @Test
     fun testRemainingOneOfThree() {
-        assertEquals(TruncatedPart.LESS_THAN_HALF_BUT_NOT_ZERO, Rounding.truncatedPartFor(1, 3));
+        assertEquals(TruncatedPart.LESS_THAN_HALF_BUT_NOT_ZERO, Rounding.truncatedPartFor(1, 3))
     }
     @Test
     fun testRemainingTwoOfThree() {
-        assertEquals(TruncatedPart.GREATER_THAN_HALF, Rounding.truncatedPartFor(2, 3));
+        assertEquals(TruncatedPart.GREATER_THAN_HALF, Rounding.truncatedPartFor(2, 3))
     }
     @Test
     fun testRemainingLongMaxHalfOfLongMax() {
-        assertEquals(TruncatedPart.LESS_THAN_HALF_BUT_NOT_ZERO, Rounding.truncatedPartFor(Long.MAX_VALUE/2, Long.MAX_VALUE));
+        assertEquals(TruncatedPart.LESS_THAN_HALF_BUT_NOT_ZERO, Rounding.truncatedPartFor(Long.MAX_VALUE/2, Long.MAX_VALUE))
     }
     @Test
     fun testRemainingLongMaxHalfMinusOneOfLongMax() {
-        assertEquals(TruncatedPart.LESS_THAN_HALF_BUT_NOT_ZERO, Rounding.truncatedPartFor(Long.MAX_VALUE/2-1, Long.MAX_VALUE));
+        assertEquals(TruncatedPart.LESS_THAN_HALF_BUT_NOT_ZERO, Rounding.truncatedPartFor(Long.MAX_VALUE/2-1, Long.MAX_VALUE))
     }
     @Test
     fun testRemainingLongMaxHalfPlusOneOfLongMax() {
-        assertEquals(TruncatedPart.GREATER_THAN_HALF, Rounding.truncatedPartFor(Long.MAX_VALUE/2+1, Long.MAX_VALUE));
+        assertEquals(TruncatedPart.GREATER_THAN_HALF, Rounding.truncatedPartFor(Long.MAX_VALUE/2+1, Long.MAX_VALUE))
     }
     @Test
     fun testRemainingLongMaxHalfOfLongMaxMinusOne() {
-        assertEquals(TruncatedPart.EQUAL_TO_HALF, Rounding.truncatedPartFor(Long.MAX_VALUE/2, Long.MAX_VALUE - 1));
+        assertEquals(TruncatedPart.EQUAL_TO_HALF, Rounding.truncatedPartFor(Long.MAX_VALUE/2, Long.MAX_VALUE - 1))
     }
     @Test
     fun testRemainingLongMaxHalfMinusOneOfLongMaxMinusOne() {
-        assertEquals(TruncatedPart.LESS_THAN_HALF_BUT_NOT_ZERO, Rounding.truncatedPartFor(Long.MAX_VALUE/2-1, Long.MAX_VALUE - 1));
+        assertEquals(TruncatedPart.LESS_THAN_HALF_BUT_NOT_ZERO, Rounding.truncatedPartFor(Long.MAX_VALUE/2-1, Long.MAX_VALUE - 1))
     }
     @Test
     fun testRemainingLongMaxHalfPlusOneOfLongMaxMinusOne() {
-        assertEquals(TruncatedPart.GREATER_THAN_HALF, Rounding.truncatedPartFor(Long.MAX_VALUE/2+1, Long.MAX_VALUE - 1));
+        assertEquals(TruncatedPart.GREATER_THAN_HALF, Rounding.truncatedPartFor(Long.MAX_VALUE/2+1, Long.MAX_VALUE - 1))
     }
     @Test
     fun testRemainingLongMinHalfOfLongMin() {
-        assertEquals(TruncatedPart.EQUAL_TO_HALF, Rounding.truncatedPartFor(Math.abs(Long.MIN_VALUE/2), Long.MIN_VALUE));
+        assertEquals(TruncatedPart.EQUAL_TO_HALF, Rounding.truncatedPartFor(Math.abs(Long.MIN_VALUE/2), Long.MIN_VALUE))
     }
     @Test
     fun testRemainingLongMinHalfMinusOneOfLongMin() {
-        assertEquals(TruncatedPart.LESS_THAN_HALF_BUT_NOT_ZERO, Rounding.truncatedPartFor(Math.abs(Long.MIN_VALUE/2)-1, Long.MIN_VALUE));
+        assertEquals(TruncatedPart.LESS_THAN_HALF_BUT_NOT_ZERO, Rounding.truncatedPartFor(Math.abs(Long.MIN_VALUE/2)-1, Long.MIN_VALUE))
     }
     @Test
     fun testRemainingLongMinHalfPlusOneOfLongMin() {
-        assertEquals(TruncatedPart.GREATER_THAN_HALF, Rounding.truncatedPartFor(Math.abs(Long.MIN_VALUE/2)+1, Long.MIN_VALUE));
+        assertEquals(TruncatedPart.GREATER_THAN_HALF, Rounding.truncatedPartFor(Math.abs(Long.MIN_VALUE/2)+1, Long.MIN_VALUE))
     }
 }

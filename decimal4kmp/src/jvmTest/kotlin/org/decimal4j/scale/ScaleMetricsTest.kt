@@ -24,6 +24,8 @@
 package org.decimal4j.scale
 
 import org.decimal4j.arithmetic.Unsigned
+import org.decimal4j.scale.ScaleMetricsExtensions.getScaleFactorAsBigDecimal
+import org.decimal4j.scale.ScaleMetricsExtensions.getScaleFactorAsBigInteger
 import org.decimal4j.test.TestSettings.getRandomTestCount
 import org.junit.Assert
 import org.junit.Test

@@ -37,7 +37,7 @@ kotlin {
 
 	sourceSets {
 		androidMain {
-
+			kotlin.srcDir("src/commonJvmAndroid/kotlin")
 			dependencies {
 				kotlin.srcDir("androidMain/kotlin")
 			}
@@ -50,12 +50,14 @@ kotlin {
 		}
 
 		jvmMain {
+			kotlin.srcDir("src/commonJvmAndroid/kotlin")
 			kotlin.srcDir("jvmMain/kotlin")
 			resources.srcDir("jvmMain/resources")
 		}
 
 
 		val commonMain by getting {
+			kotlin.srcDir("commonMain/kotlin")
 			dependencies {
 				implementation(kotlin("stdlib"))
 			}
@@ -74,6 +76,16 @@ dependencies {
 	add("kspCommonMainMetadata", project(":processor"))
 	add("kspJvm", project(":processor"))
 	add("kspAndroid", project(":processor"))
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.dsl.KotlinCompile<*>>().all {
+	if(name != "kspCommonMainKotlinMetadata") {
+		dependsOn("kspCommonMainKotlinMetadata")
+	}
+}
+
+kotlin.sourceSets.commonMain {
+	kotlin.srcDir("build/generated/ksp/metadata/commonMain/kotlin")
 }
 
 android {

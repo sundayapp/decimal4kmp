@@ -91,7 +91,7 @@ abstract class AbstractBigIntegerToDecimalTest
         // expected
         var expected: ArithmeticResult<Long>
         try {
-            expected = forResult(arithmetic, expectedResult(operand)!!)
+            expected = forResult(arithmetic, expectedResult(operand))
         } catch (e: ArithmeticException) {
             expected = forException(e)
         } catch (e: IllegalArgumentException) {
@@ -101,7 +101,7 @@ abstract class AbstractBigIntegerToDecimalTest
         // actual
         var actual: ArithmeticResult<Long>
         try {
-            actual = forResult(actualResult(scaleMetrics, operand)!!)
+            actual = forResult(actualResult(scaleMetrics, operand))
         } catch (e: ArithmeticException) {
             actual = forException(e)
         } catch (e: IllegalArgumentException) {
@@ -109,6 +109,6 @@ abstract class AbstractBigIntegerToDecimalTest
         }
 
         // assert
-        actual.assertEquivalentTo(expected!!, messagePrefix)
+        actual.assertEquivalentTo(expected, messagePrefix)
     }
 }

@@ -55,7 +55,7 @@ class LongFromToTest(s: ScaleMetrics?, arithmetic: DecimalArithmetic) : Abstract
 
     override fun <S : ScaleMetrics> actualResult(factory: DecimalFactory<S>, value: Long): Long {
         val decimal = if (RND.nextBoolean()) factory.valueOf(value) else factory.newMutable().set(value)
-        return if (RND.nextBoolean()) decimal.longValue() else decimal.longValueExact()
+        return if (RND.nextBoolean()) decimal.toLong() else decimal.longValueExact()
     }
 
     companion object {

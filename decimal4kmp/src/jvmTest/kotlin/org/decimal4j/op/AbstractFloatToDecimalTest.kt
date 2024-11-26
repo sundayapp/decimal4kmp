@@ -86,7 +86,7 @@ abstract class AbstractFloatToDecimalTest
         // actual
         var actual: ArithmeticResult<Long>
         try {
-            actual = forResult(actualResult(scaleMetrics, operand)!!)
+            actual = forResult(actualResult(scaleMetrics, operand))
         } catch (e: ArithmeticException) {
             actual = forException(e)
         } catch (e: IllegalArgumentException) {

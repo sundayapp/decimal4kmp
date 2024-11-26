@@ -33,8 +33,8 @@ import org.decimal4j.truncate.OverflowMode
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import java.math.BigDecimal
-import org.decimal4j.api.RoundingMode
-import org.decimal4j.api.toJavaRoundingMode
+import org.decimal4j.truncate.RoundingMode
+import org.decimal4j.arithmetic.toJavaRoundingMode
 
 /**
  * Unit test for [Decimal.divideToLongValue]
@@ -42,9 +42,6 @@ import org.decimal4j.api.toJavaRoundingMode
 @RunWith(Parameterized::class)
 class DivideToLongValueTest(scaleMetrics: ScaleMetrics?, overflowMode: OverflowMode?, arithmetic: DecimalArithmetic) :
     AbstractDecimalDecimalToAnyTest<Long>(arithmetic) {
-    override fun runSpecialValueTest() {
-        super.runSpecialValueTest()
-    }
 
     override fun operation(): String {
         return "divideToIntegralValue"

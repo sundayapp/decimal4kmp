@@ -48,7 +48,7 @@ class ByteValueTest(scaleMetrics: ScaleMetrics?, private val exact: Boolean, ari
     }
 
     override fun <S : ScaleMetrics> actualResult(operand: Decimal<S>): Byte {
-        return if (exact) operand.byteValueExact() else operand.byteValue()
+        return if (exact) operand.byteValueExact() else operand.toByte()
     }
 
     companion object {

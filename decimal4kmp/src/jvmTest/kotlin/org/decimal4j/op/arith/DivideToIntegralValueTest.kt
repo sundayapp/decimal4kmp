@@ -44,9 +44,6 @@ class DivideToIntegralValueTest(
     arithmetic: DecimalArithmetic
 ) :
     AbstractDecimalDecimalToDecimalTest(arithmetic) {
-    override fun runSpecialValueTest() {
-        super.runSpecialValueTest()
-    }
 
     override fun operation(): String {
         return "divideToIntegralValue"

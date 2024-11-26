@@ -32,7 +32,7 @@ import org.decimal4j.truncate.TruncationPolicy
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import java.math.BigDecimal
-import org.decimal4j.api.RoundingMode
+import org.decimal4j.truncate.RoundingMode
 
 /**
  * Unit test for [Decimal.divide]
@@ -44,9 +44,6 @@ open class DivideTest(
     arithmetic: DecimalArithmetic
 ) :
     AbstractDecimalDecimalToDecimalTest(arithmetic) {
-    override fun runSpecialValueTest() {
-        super.runSpecialValueTest()
-    }
 
     override fun operation(): String {
         return "/"

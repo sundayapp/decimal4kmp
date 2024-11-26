@@ -38,7 +38,7 @@ import kotlin.reflect.KClass
 import kotlin.reflect.full.companionObject
 import kotlin.reflect.full.companionObjectInstance
 import kotlin.reflect.full.functions
-import kotlin.reflect.jvm.jvmErasure
+import kotlin.reflect.full.memberFunctions
 
 /**
  * Unit test for Decimal constants and constant setter methods of the
@@ -314,8 +314,8 @@ class ConstantTest(scaleMetrics: ScaleMetrics?, arithmetic: DecimalArithmetic) :
 
     private fun immutableConstant(constantName: String): Decimal<*> {
         try {
-            val clazz = Class.forName(immutableClassName)
-            return clazz.getField(constantName)[null] as Decimal<*>
+            val clazz = Class.forName(immutableClassName).kotlin
+            return clazz.companionObject!!.members.first { it.name == constantName }.call(clazz.companionObjectInstance) as Decimal<*>
         } catch (e: Exception) {
             throw RuntimeException("could not access static field '$constantName', e=$e", e)
         }
@@ -323,8 +323,9 @@ class ConstantTest(scaleMetrics: ScaleMetrics?, arithmetic: DecimalArithmetic) :
 
     private fun mutableConstant(methodName: String): Decimal<*> {
         try {
-            val clazz = Class.forName(mutableClassName)
-            return clazz.getMethod(methodName).invoke(null) as Decimal<*>
+            val kClass = Class.forName(mutableClassName).kotlin
+            val function = kClass.companionObject!!.memberFunctions.first { it.name == methodName }
+            return function.call(kClass.companionObjectInstance)  as Decimal<*>
         } catch (e: InvocationTargetException) {
             if (e.targetException is RuntimeException) {
                 throw (e.targetException as RuntimeException)

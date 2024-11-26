@@ -24,7 +24,7 @@
 package org.decimal4j.op
 
 import org.decimal4j.api.DecimalArithmetic
-import org.decimal4j.api.toJavaRoundingMode
+import org.decimal4j.arithmetic.toJavaRoundingMode
 import org.decimal4j.op.util.UnscaledUtil.getSpecialUnscaledOperands
 import java.math.BigDecimal
 

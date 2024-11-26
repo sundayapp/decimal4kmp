@@ -74,7 +74,7 @@ abstract class AbstractDecimalUnknownDecimalToDecimalTest(
         // expected
         var expected: ArithmeticResult<Long>
         try {
-            expected = forResult(arithmetic, expectedResult(bdOpA, bdOpB)!!)
+            expected = forResult(arithmetic, expectedResult(bdOpA, bdOpB))
         } catch (e: ArithmeticException) {
             expected = forException(e)
         } catch (e: IllegalArgumentException) {
@@ -84,7 +84,7 @@ abstract class AbstractDecimalUnknownDecimalToDecimalTest(
         // actual
         var actual: ArithmeticResult<Long>
         try {
-            actual = forResult(actualResult(dOpA, dOpB)!!)
+            actual = forResult(actualResult(dOpA, dOpB))
         } catch (e: ArithmeticException) {
             actual = forException(e)
         } catch (e: IllegalArgumentException) {

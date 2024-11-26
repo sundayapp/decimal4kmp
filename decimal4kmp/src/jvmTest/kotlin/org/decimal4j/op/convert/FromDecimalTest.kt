@@ -24,14 +24,20 @@
 package org.decimal4j.op.convert
 
 import org.decimal4j.api.*
+import org.decimal4j.api.BigDecimalExtensions.toBigDecimal
 import org.decimal4j.factory.DecimalFactory
 import org.decimal4j.op.AbstractUnknownDecimalToDecimalTest
 import org.decimal4j.scale.ScaleMetrics
 import org.decimal4j.test.TestSettings
+import org.decimal4j.truncate.RoundingMode
+import org.decimal4j.arithmetic.toJavaRoundingMode
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import java.lang.reflect.InvocationTargetException
 import java.math.BigDecimal
+import kotlin.reflect.full.companionObject
+import kotlin.reflect.full.companionObjectInstance
+import kotlin.reflect.full.memberFunctions
 
 /**
  * Tests from-Decimal conversion via
@@ -62,7 +68,7 @@ class FromDecimalTest(s: ScaleMetrics?, mode: RoundingMode?, arithmetic: Decimal
                 }
 
             1 ->            //Factory, mutable
-                if (operand.scale == scaleMetrics!!.getScale() && RND.nextBoolean()) {
+                if (operand.scale == scaleMetrics.getScale() && RND.nextBoolean()) {
                     val `val` = operand.scale(scaleMetrics) //won't change, acts like a cast
                     return getDecimalFactory(scaleMetrics).newMutable().set(`val`)
                 } else {
@@ -107,14 +113,23 @@ class FromDecimalTest(s: ScaleMetrics?, mode: RoundingMode?, arithmetic: Decimal
 
     private fun <S : ScaleMetrics> valueOf(scaleMetrics: S, operand: Decimal<*>): Decimal<S> {
         try {
-            val clazz = Class.forName(immutableClassName)
-            return if (operand.scale == scaleMetrics!!.getScale() && RND.nextBoolean()) {
-                clazz.getMethod("valueOf", Decimal::class.java).invoke(null, operand) as Decimal<S>
+            val kClass = Class.forName(immutableClassName).kotlin
+            return if (operand.scale == scaleMetrics.getScale() && RND.nextBoolean()) {
+                kClass.companionObject!!.memberFunctions.first {
+                    it.name == "valueOf" &&
+                        it.parameters.size == 2 &&
+                        it.parameters[1].type.classifier == Decimal::class
+                }
+                    .call(kClass.companionObjectInstance, operand) as Decimal<S>
+
             } else {
-                clazz.getMethod("valueOf", Decimal::class.java, RoundingMode::class.java).invoke(
-                    null, operand,
-                    roundingMode
-                ) as Decimal<S>
+                kClass.companionObject!!.memberFunctions.first {
+                    it.name == "valueOf" &&
+                            it.parameters.size == 3 &&
+                            it.parameters[1].type.classifier == Decimal::class &&
+                            it.parameters[2].type.classifier == RoundingMode::class
+                }
+                    .call(kClass.companionObjectInstance, operand, roundingMode) as Decimal<S>
             }
         } catch (e: InvocationTargetException) {
             if (e.targetException is RuntimeException) {

@@ -25,7 +25,7 @@ package org.decimal4j.test
 
 import org.decimal4j.api.Decimal
 import org.decimal4j.api.DecimalArithmetic
-import org.decimal4j.api.toJavaRoundingMode
+import org.decimal4j.arithmetic.toJavaRoundingMode
 import org.decimal4j.arithmetic.JDKSupport
 import org.junit.Assert
 import java.math.BigDecimal
