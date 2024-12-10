@@ -1,6 +1,24 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "local>sundayapp/renovate-config"
-  ]
+    "config:recommended",
+    ":pinDevDependencies",
+    ":semanticCommitTypeAll(fix)",
+    "mergeConfidence:all-badges"
+  ],
+  "timezone": "Europe/Paris",
+  "dependencyDashboard": true,
+  "reviewersFromCodeOwners": true,
+  "detectHostRulesFromEnv": true,
+  "binarySource": "install",
+  "platformCommit": true,
+  "transitiveRemediation": true,
+  "osvVulnerabilityAlerts": true,
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "labels": [
+      "security"
+    ]
+  },
+  "postUpdateOptions": ["npmDedupe", "yarnDedupeFewer"]
 }
