@@ -6,7 +6,7 @@ on:
       - 'build.gradle'
       - '.release-please-manifest.json'
     branches:
-      - main
+      - master
       - hotfix/**
 jobs:
   build:
@@ -31,23 +31,15 @@ jobs:
           workload_identity_provider: ${{ vars.GCP_WORKLOAD_IDP }}
           service_account: ${{ vars.GCP_GITHUB_ACTIONS_SA_NAME }}
 
-      - name: Build Java artefacts
-        uses: sundayapp/reusable-workflows/.github/actions/build-java@v3.5.0 # x-release-please-version
+      - name: Set up JDK
+        uses: actions/setup-java@v4
         with:
-          java_version: "21"
-          java_distribution: "temurin"
-          java_args: ""
-          use_docker_compose: $false
-          artefacts_name: "artefacts"
-          artefacts_path: "build/libs"
-          publish: false
-          tests: false
-          token: ${{ secrets.TOKEN_GITHUB }}
-          scan: true
-          sonar_project: ${{ github.event.repository.name }}
-          sonar_token: ${{ secrets.SONAR_TOKEN }}
-          sonar_host_url: ${{ secrets.SONAR_HOST_URL }}
-  release:
-    uses: sundayapp/reusable-workflows/.github/workflows/release-please-template.yml@v3
-    needs: build
-    secrets: inherit
+          java-version: "21"
+          distribution: "temurin"
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build Java project
+        run: ./gradlew build
+
