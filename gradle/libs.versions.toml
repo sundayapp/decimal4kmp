@@ -25,7 +25,7 @@ kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.
 kotest-framework-engine = { module = "io.kotest:kotest-framework-engine", version.ref = "kotest" }
 kotest-property = { module = "io.kotest:kotest-property", version.ref = "kotest" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
-javapoet = { module = "com.squareup:javapoet", version = "1.12.1" }
+javapoet = { module = "com.squareup:javapoet", version = "1.13.0" }
 ksp-api = { module = "com.google.devtools.ksp:symbol-processing-api", version.ref = "ksp" }
 mockk = { group = "io.mockk", name = "mockk", version = "1.13.13" }
 
