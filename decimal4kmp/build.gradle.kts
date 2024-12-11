@@ -1,5 +1,6 @@
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import java.net.URI
 
 buildscript {
 	dependencies {
@@ -82,6 +83,10 @@ tasks.withType<org.jetbrains.kotlin.gradle.dsl.KotlinCompile<*>>().all {
 	if(name != "kspCommonMainKotlinMetadata") {
 		dependsOn("kspCommonMainKotlinMetadata")
 	}
+}
+
+tasks.named("sourcesJar") {
+	dependsOn(tasks.named("kspCommonMainKotlinMetadata"))
 }
 
 kotlin.sourceSets.commonMain {
