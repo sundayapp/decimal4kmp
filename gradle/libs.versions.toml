@@ -9,7 +9,7 @@ sonarQube = "5.1.0.4882"
 coroutines = "1.9.0"
 decimal4j = "1.0.3"
 kotest = "6.0.0.M1"
-ksp = "2.0.21-1.0.28"
+ksp = "2.1.0-1.0.29"
 
 [libraries]
 fmpp = { module = "net.sourceforge.fmpp:fmpp", version.ref = "fmpp" }
