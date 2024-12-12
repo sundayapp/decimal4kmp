@@ -36,7 +36,7 @@ jobs:
 
   release:
     runs-on: ubuntu-latest
-    if: ${{ startsWith(github.ref_name, 'main') || startsWith(github.ref_name, 'hotfix') }}
+    if: ${{ startsWith(github.ref_name, 'master') || startsWith(github.ref_name, 'hotfix') }}
     steps:
       - name: Checkout project
         uses: actions/checkout@v4
