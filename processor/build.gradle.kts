@@ -22,7 +22,7 @@ kotlin {
         val jvmMain by getting {
             dependencies {
 
-                implementation("org.freemarker:freemarker:2.3.33")
+                implementation("org.freemarker:freemarker:2.3.34")
 
                 implementation(libs.ksp.api)
             }
