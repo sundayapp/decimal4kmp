@@ -33,7 +33,7 @@ mockk = { group = "io.mockk", name = "mockk", version = "1.13.14" }
 
 [plugins]
 googleKsp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-mavenPublish = { id = "com.vanniktech.maven.publish", version = "0.28.0" }
+mavenPublish = { id = "com.vanniktech.maven.publish", version = "0.30.0" }
 
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
