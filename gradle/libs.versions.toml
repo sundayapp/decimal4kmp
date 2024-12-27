@@ -7,7 +7,6 @@ android-compileSdk = "34"
 kotlinxDatetime = "0.6.1"
 sonarQube = "6.0.1.5171"
 coroutines = "1.10.1"
-decimal4j = "1.0.3"
 kotest = "6.0.0.M1"
 ksp = "2.1.0-1.0.29"
 
@@ -18,7 +17,6 @@ junit = { module = "junit:junit", version = "4.13.2" }
 junit-params = { module = "pl.pragmatists:JUnitParams", version = "1.1.1" }
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
-decimal4j = { module = "org.decimal4j:decimal4j", version.ref = "decimal4j" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
@@ -33,7 +31,7 @@ mockk = { group = "io.mockk", name = "mockk", version = "1.13.14" }
 
 [plugins]
 googleKsp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-mavenPublish = { id = "com.vanniktech.maven.publish", version = "0.28.0" }
+mavenPublish = { id = "com.vanniktech.maven.publish", version = "0.30.0" }
 
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }

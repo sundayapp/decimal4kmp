@@ -125,6 +125,15 @@ mavenPublishing {
             }
         }
 
+		// Specify developer information
+		developers {
+			developer {
+				id.set("yoann.meste")
+				name.set("Yoann Meste")
+				email.set("yoann.meste@sundayapp.com")
+			}
+		}
+
         // Specify SCM information
         scm {
             url.set("https://github.com/sundayapp/decimal4kmp")

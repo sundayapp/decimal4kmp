@@ -1,10 +1,10 @@
 [![Build Status](https://travis-ci.org/tools4j/decimal4j.svg?branch=master)](https://travis-ci.org/tools4j/decimal4j)
-[![Maven Central](https://img.shields.io/maven-central/v/org.decimal4j/decimal4j.svg)](https://search.maven.org/search?q=decimal4j)
-[![Javadocs](http://www.javadoc.io/badge/org.decimal4j/decimal4j.svg)](http://www.javadoc.io/doc/org.decimal4j/decimal4j)
+[![Maven Central](https://img.shields.io/maven-central/v/com.sundayapp/decimal4kmp.svg)](https://search.maven.org/search?q=decimal4kmp)
+[![Javadocs](http://www.javadoc.io/badge/com.sundayapp/decimal4j.svg)](http://www.javadoc.io/doc/com.sundayapp/decimal4j)
 
 ## decimal4kmp
 Kotlin multiplatform library for fast fixed-point arithmetic based on longs with support for up to 18 decimal places.
-Ported for the library decimal4j
+Ported for the library [decimal4j](https://github.com/tools4j/decimal4j)
 
 #### Features
  - Fixed-point arithmetic with 0 to 18 decimal places
@@ -27,7 +27,7 @@ Ported for the library decimal4j
 ###### Maven
 ```xml
 <dependency>
-	<groupId>org.decimal4kmp</groupId>
+	<groupId>org.sundayapp</groupId>
 	<artifactId>decimal4kmp</artifactId>
 	<version>0.0.1</version>
 	<scope>compile</scope>
@@ -36,6 +36,6 @@ Ported for the library decimal4j
 
 ###### Gradle
 ```
-compile 'org.decimal4kmp:decimal4kmp:0.0.1'
+compile 'org.sundayapp:decimal4kmp:0.0.1'
 ```
 
