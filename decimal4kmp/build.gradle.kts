@@ -1,3 +1,4 @@
+import com.vanniktech.maven.publish.SonatypeHost
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import java.net.URI
@@ -11,10 +12,10 @@ buildscript {
 plugins {
 	alias(libs.plugins.kotlinMultiplatform)
 	alias(libs.plugins.androidLibrary)
-	`maven-publish`
 	alias(libs.plugins.sonarQube)
 	alias(libs.plugins.kotest.multiplatform)
 	alias(libs.plugins.googleKsp)
+	alias(libs.plugins.mavenPublish)
 }
 
 group = "org.decimal4kmp"
@@ -100,4 +101,39 @@ android {
 		compileSdk = 33
 		minSdk = libs.versions.android.minSdk.get().toInt()
 	}
+}
+
+mavenPublishing {
+    // Define coordinates for the published artifact
+    coordinates(
+        groupId = "com.sundayapp",
+        artifactId = "decimal4kmp",
+        version = "0.0.1"
+    )
+
+    // Configure POM metadata for the published artifact
+    pom {
+        name.set("KMP Library for fast fixed-point arithmetic")
+        description.set("Kotlin multiplatform library for fast fixed-point arithmetic based on longs with support for up to 18 decimal places")
+        inceptionYear.set("2024")
+        url.set("https://github.com/sundayapp/decimal4kmp")
+
+        licenses {
+            license {
+                name.set("MIT")
+                url.set("https://opensource.org/licenses/MIT")
+            }
+        }
+
+        // Specify SCM information
+        scm {
+            url.set("https://github.com/sundayapp/decimal4kmp")
+        }
+    }
+
+    // Configure publishing to Maven Central
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+
+    // Enable GPG signing for all publications
+    signAllPublications()
 }
