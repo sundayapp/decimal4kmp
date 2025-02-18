@@ -1,0 +1,32 @@
+name: Renovate
+
+on:
+  push:
+    branches:
+      - renovate/**
+
+jobs:
+  publish:
+    runs-on: macos-13
+    permissions:
+      contents: write
+      id-token: write
+      packages: read
+    timeout-minutes: 40
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: "21"
+          distribution: "temurin"
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Test project
+        run: ./gradlew check
