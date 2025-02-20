@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.4](https://github.com/sundayapp/decimal4kmp/compare/v0.0.3...v0.0.4) (2025-02-20)
+
+
+### Continuous Integration
+
+* fix CI issue on publish for iOS emulated target ([87979c0](https://github.com/sundayapp/decimal4kmp/commit/87979c0710ed1ac6c9d5a468b8fd6d18e74cd9fa))
+
 ## [0.0.3](https://github.com/sundayapp/decimal4kmp/compare/v0.0.2...v0.0.3) (2025-02-20)
 
 
