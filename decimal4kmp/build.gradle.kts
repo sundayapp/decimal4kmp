@@ -93,6 +93,9 @@ tasks.named("sourcesJar") {
 tasks.named("iosArm64SourcesJar") {
 	dependsOn(tasks.named("kspCommonMainKotlinMetadata"))
 }
+tasks.named("iosSimulatorArm64SourcesJar") {
+	dependsOn(tasks.named("kspCommonMainKotlinMetadata"))
+}
 
 kotlin.sourceSets.commonMain {
 	kotlin.srcDir("build/generated/ksp/metadata/commonMain/kotlin")
