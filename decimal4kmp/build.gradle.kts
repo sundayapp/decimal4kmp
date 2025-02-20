@@ -1,7 +1,7 @@
 import com.vanniktech.maven.publish.SonatypeHost
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import java.net.URI
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 
 buildscript {
 	dependencies {
@@ -80,7 +80,7 @@ dependencies {
 	add("kspAndroid", project(":processor"))
 }
 
-tasks.withType<org.jetbrains.kotlin.gradle.dsl.KotlinCompile<*>>().all {
+tasks.withType<KotlinCompilationTask<*>>().all {
 	if(name != "kspCommonMainKotlinMetadata") {
 		dependsOn("kspCommonMainKotlinMetadata")
 	}
@@ -90,15 +90,19 @@ tasks.named("sourcesJar") {
 	dependsOn(tasks.named("kspCommonMainKotlinMetadata"))
 }
 
+tasks.named("iosArm64SourcesJar") {
+	dependsOn(tasks.named("kspCommonMainKotlinMetadata"))
+}
+
 kotlin.sourceSets.commonMain {
 	kotlin.srcDir("build/generated/ksp/metadata/commonMain/kotlin")
 }
 
 android {
 	namespace = "org.decimal4kmp"
-	compileSdk = 33
+	compileSdk = 34
 	defaultConfig {
-		compileSdk = 33
+		compileSdk = 34
 		minSdk = libs.versions.android.minSdk.get().toInt()
 	}
 }
@@ -108,7 +112,9 @@ mavenPublishing {
     coordinates(
         groupId = "com.sundayapp",
         artifactId = "decimal4kmp",
-        version = "0.0.1"
+		//x-release-please-start-version
+        version = "0.0.2"
+		//x-release-please-end
     )
 
     // Configure POM metadata for the published artifact
