@@ -90,6 +90,9 @@ tasks.named("sourcesJar") {
 	dependsOn(tasks.named("kspCommonMainKotlinMetadata"))
 }
 
+tasks.named("iosX64SourcesJar") {
+	dependsOn(tasks.named("kspCommonMainKotlinMetadata"))
+}
 tasks.named("iosArm64SourcesJar") {
 	dependsOn(tasks.named("kspCommonMainKotlinMetadata"))
 }

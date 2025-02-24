@@ -3,7 +3,8 @@ on:
   push:
     paths-ignore:
       - 'CHANGELOG.md'
-      - 'build.gradle'
+      - 'build.gradle.kts'
+      - 'decimal4kmp/build.gradle.kts'
       - '.release-please-manifest.json'
     branches:
       - master
