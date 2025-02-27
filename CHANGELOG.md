@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.0.5](https://github.com/sundayapp/decimal4kmp/compare/v0.0.4...v0.0.5) (2025-02-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency com.android.library to v8.8.2 ([#27](https://github.com/sundayapp/decimal4kmp/issues/27)) ([be64f85](https://github.com/sundayapp/decimal4kmp/commit/be64f851c2569ee3f59ec4d8a453db8ba964edfd))
+* **deps:** update dependency gradle to v8.13 ([#26](https://github.com/sundayapp/decimal4kmp/issues/26)) ([a8f84f6](https://github.com/sundayapp/decimal4kmp/commit/a8f84f6c40ec771b1f4c95c63bd495f50d4ef2b7))
+
+
+### Continuous Integration
+
+* fix CI issue on publish for iOS target ([b15f791](https://github.com/sundayapp/decimal4kmp/commit/b15f791e5f0e4347f7809ac1d094088a168a4566))
+
 ## [0.0.4](https://github.com/sundayapp/decimal4kmp/compare/v0.0.3...v0.0.4) (2025-02-20)
 
 
