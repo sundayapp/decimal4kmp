@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.0.5](https://github.com/sundayapp/decimal4kmp/compare/v0.0.4...v0.0.5) (2025-02-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency com.android.library to v8.8.2 ([#27](https://github.com/sundayapp/decimal4kmp/issues/27)) ([be64f85](https://github.com/sundayapp/decimal4kmp/commit/be64f851c2569ee3f59ec4d8a453db8ba964edfd))
+* **deps:** update dependency gradle to v8.13 ([#26](https://github.com/sundayapp/decimal4kmp/issues/26)) ([a8f84f6](https://github.com/sundayapp/decimal4kmp/commit/a8f84f6c40ec771b1f4c95c63bd495f50d4ef2b7))
+* **deps:** update dependency io.mockk:mockk to v1.13.17 ([#28](https://github.com/sundayapp/decimal4kmp/issues/28)) ([ea41437](https://github.com/sundayapp/decimal4kmp/commit/ea414375788ce8778272f8bed090ed16f9d02508))
+* **deps:** update ksp monorepo to v2.1.10-1.0.31 ([#29](https://github.com/sundayapp/decimal4kmp/issues/29)) ([15838f9](https://github.com/sundayapp/decimal4kmp/commit/15838f96d13f3255ee468cba4dbbf5d34fb011c6))
+
+
+### Continuous Integration
+
+* fix CI issue on publish for iOS target ([b15f791](https://github.com/sundayapp/decimal4kmp/commit/b15f791e5f0e4347f7809ac1d094088a168a4566))
+
 ## [0.0.4](https://github.com/sundayapp/decimal4kmp/compare/v0.0.3...v0.0.4) (2025-02-20)
 
 
