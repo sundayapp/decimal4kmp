@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.6](https://github.com/sundayapp/decimal4kmp/compare/v0.0.5...v0.0.6) (2025-03-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency com.android.library to v8.9.0 ([#30](https://github.com/sundayapp/decimal4kmp/issues/30)) ([6ccfac7](https://github.com/sundayapp/decimal4kmp/commit/6ccfac7ec1fdb0afb1293822dd351b869509884d))
+* **deps:** update plugin mavenpublish to v0.31.0 ([#31](https://github.com/sundayapp/decimal4kmp/issues/31)) ([1fb27b5](https://github.com/sundayapp/decimal4kmp/commit/1fb27b5bcd8bf34c2ec93f6f0f41f8d9a2852565))
+
 ## [0.0.5](https://github.com/sundayapp/decimal4kmp/compare/v0.0.4...v0.0.5) (2025-02-28)
 
 
