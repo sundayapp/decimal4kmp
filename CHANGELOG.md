@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.0.6](https://github.com/sundayapp/decimal4kmp/compare/v0.0.5...v0.0.6) (2025-04-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency com.android.library to v8.9.0 ([#30](https://github.com/sundayapp/decimal4kmp/issues/30)) ([6ccfac7](https://github.com/sundayapp/decimal4kmp/commit/6ccfac7ec1fdb0afb1293822dd351b869509884d))
+* **deps:** update dependency com.android.library to v8.9.1 ([#35](https://github.com/sundayapp/decimal4kmp/issues/35)) ([b73fef5](https://github.com/sundayapp/decimal4kmp/commit/b73fef57ead9e93fdc45a88dcfbf76f507c7552d))
+* **deps:** update dependency org.sonarqube to v6.1.0.5360 ([#36](https://github.com/sundayapp/decimal4kmp/issues/36)) ([63d7a58](https://github.com/sundayapp/decimal4kmp/commit/63d7a58b035f243c4f2670f3175461c0e934a76a))
+* **deps:** update kotest to v6.0.0.m3 ([#37](https://github.com/sundayapp/decimal4kmp/issues/37)) ([9a130bd](https://github.com/sundayapp/decimal4kmp/commit/9a130bda71c133a767cd5dace30c19cb4d680ea8))
+* **deps:** update kotlin monorepo to v2.1.20 ([02f4246](https://github.com/sundayapp/decimal4kmp/commit/02f4246524a03378b56b5afca6936914a4fc129d))
+* **deps:** update ksp monorepo to v2.1.20-1.0.32 ([ce26f8f](https://github.com/sundayapp/decimal4kmp/commit/ce26f8f4163fe493bbff7325380e2d6033ddf7cc))
+* **deps:** update plugin mavenpublish to v0.31.0 ([#31](https://github.com/sundayapp/decimal4kmp/issues/31)) ([1fb27b5](https://github.com/sundayapp/decimal4kmp/commit/1fb27b5bcd8bf34c2ec93f6f0f41f8d9a2852565))
+
 ## [0.0.5](https://github.com/sundayapp/decimal4kmp/compare/v0.0.4...v0.0.5) (2025-02-28)
 
 

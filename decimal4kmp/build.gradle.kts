@@ -20,7 +20,7 @@ plugins {
 
 group = "org.decimal4kmp"
 //x-release-please-start-version
-version="0.0.5"
+version="0.0.6"
 //x-release-please-end
 
 kotlin {
@@ -119,7 +119,7 @@ mavenPublishing {
         groupId = "com.sundayapp",
         artifactId = "decimal4kmp",
 		//x-release-please-start-version
-        version = "0.0.5"
+        version = "0.0.6"
 		//x-release-please-end
     )
 
