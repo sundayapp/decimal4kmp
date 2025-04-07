@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.0.8](https://github.com/sundayapp/decimal4kmp/compare/v0.0.7...v0.0.8) (2025-04-07)
+
+
+### Continuous Integration
+
+* **android:** bumps the compileSDK version to 35 ([9c7f3ab](https://github.com/sundayapp/decimal4kmp/commit/9c7f3aba75da8c7755a7631b65ce8cb3d3c806d7))
+* **publish:** add more details to SCM for publication ([949481d](https://github.com/sundayapp/decimal4kmp/commit/949481d27ed9a9ef580b91b2e3d99ab1c4f53408))
+* **publish:** performs the release during the publish process ([882106c](https://github.com/sundayapp/decimal4kmp/commit/882106c974667dd3a79b4d90e9843867424624e8))
+* **renovate:** removes warning in renovate config file ([300c0f5](https://github.com/sundayapp/decimal4kmp/commit/300c0f532ccdf0831c7e856b177dd7e04c914ccb))
+
 ## [0.0.7](https://github.com/sundayapp/decimal4kmp/compare/v0.0.6...v0.0.7) (2025-04-07)
 
 
