@@ -149,6 +149,8 @@ mavenPublishing {
         // Specify SCM information
         scm {
             url.set("https://github.com/sundayapp/decimal4kmp")
+			connection.set("scm:git:git://github.com/sundayapp/decimal4kmp.git")
+			developerConnection.set("scm:git:git://github.com/sundayapp/decimal4kmp.git")
         }
     }
 
