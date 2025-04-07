@@ -106,9 +106,9 @@ kotlin.sourceSets.commonMain {
 
 android {
 	namespace = "org.decimal4kmp"
-	compileSdk = 34
+	compileSdk = 35
 	defaultConfig {
-		compileSdk = 34
+		compileSdk = 35
 		minSdk = libs.versions.android.minSdk.get().toInt()
 	}
 }
