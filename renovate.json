@@ -9,9 +9,6 @@
   "timezone": "Europe/Paris",
   "dependencyDashboard": true,
   "reviewersFromCodeOwners": true,
-  "detectHostRulesFromEnv": true,
-  "binarySource": "install",
-  "platformCommit": true,
   "transitiveRemediation": true,
   "osvVulnerabilityAlerts": true,
   "vulnerabilityAlerts": {
