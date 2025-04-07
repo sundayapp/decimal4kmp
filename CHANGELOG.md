@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.7](https://github.com/sundayapp/decimal4kmp/compare/v0.0.6...v0.0.7) (2025-04-07)
+
+
+### Continuous Integration
+
+* **publish:** update CI script to sign and publish library to maven central ([4a4a483](https://github.com/sundayapp/decimal4kmp/commit/4a4a483e9736273c40d3f5c12f57aa964961cdcd))
+
 ## [0.0.6](https://github.com/sundayapp/decimal4kmp/compare/v0.0.5...v0.0.6) (2025-04-06)
 
 
