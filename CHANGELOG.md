@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.9](https://github.com/sundayapp/decimal4kmp/compare/v0.0.8...v0.0.9) (2025-04-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency io.mockk:mockk to v1.14.0 ([#41](https://github.com/sundayapp/decimal4kmp/issues/41)) ([106b4ef](https://github.com/sundayapp/decimal4kmp/commit/106b4ef410b02d0d996e70e3b992599cedfb59f4))
+* **deps:** update kotlinx-coroutines monorepo to v1.10.2 ([#40](https://github.com/sundayapp/decimal4kmp/issues/40)) ([697d7be](https://github.com/sundayapp/decimal4kmp/commit/697d7be31816c397231a8b0e41828f0c69517d15))
+
 ## [0.0.8](https://github.com/sundayapp/decimal4kmp/compare/v0.0.7...v0.0.8) (2025-04-07)
 
 
