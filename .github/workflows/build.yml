@@ -36,7 +36,12 @@ jobs:
         run: ./gradlew check
 
   release:
-    runs-on: ubuntu-latest
+    runs-on:
+      - runs-on
+      - run-id=${{ github.run_id }}
+      - runner=4cpu-linux-x64
+      - spot=false
+      - family=${{ vars.GHA_RUNNER_FAMILY }}
     if: ${{ startsWith(github.ref_name, 'master') || startsWith(github.ref_name, 'hotfix') }}
     steps:
       - name: Checkout project
