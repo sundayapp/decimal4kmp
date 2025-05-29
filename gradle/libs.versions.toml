@@ -1,5 +1,5 @@
 [versions]
-agp = "8.10.0"
+agp = "8.10.1"
 fmpp = "0.9.16"
 kotlin = "2.1.21"
 android-minSdk = "24"
