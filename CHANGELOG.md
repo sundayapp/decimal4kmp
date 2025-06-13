@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.1](https://github.com/sundayapp/decimal4kmp/compare/v0.1.0...v0.1.1) (2025-06-13)
+
+
+### Bug Fixes
+
+* **build:** add wasmJsSourcesJar dependency on ksp task ([a72b2e6](https://github.com/sundayapp/decimal4kmp/commit/a72b2e6efcf5f76256985512f6f8ccce1799504a))
+
+
+### Documentation
+
+* **README:** update dependency version for decimal4kmp ([f1bc4dd](https://github.com/sundayapp/decimal4kmp/commit/f1bc4dd048b585c77b1d6a2abb1c5f780187486d))
+
 ## [0.1.0](https://github.com/sundayapp/decimal4kmp/compare/v0.0.8...v0.1.0) (2025-06-12)
 
 
