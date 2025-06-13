@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/sundayapp/decimal4kmp/compare/v0.1.1...v0.1.2) (2025-06-13)
+
+
+### Bug Fixes
+
+* **js:** improves support for JS platform ([5ed906d](https://github.com/sundayapp/decimal4kmp/commit/5ed906d01e7ed8b4debb42aeccc6c496b85448b2))
+
 ## [0.1.1](https://github.com/sundayapp/decimal4kmp/compare/v0.1.0...v0.1.1) (2025-06-13)
 
 
