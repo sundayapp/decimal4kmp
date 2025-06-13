@@ -29,13 +29,13 @@ Ported for the library [decimal4j](https://github.com/tools4j/decimal4j)
 <dependency>
 	<groupId>org.sundayapp</groupId>
 	<artifactId>decimal4kmp</artifactId>
-	<version>0.0.1</version>
+	<version>0.1.1</version>
 	<scope>compile</scope>
 </dependency>
 ```
 
 ###### Gradle
 ```
-compile 'org.sundayapp:decimal4kmp:0.0.1'
+compile 'org.sundayapp:decimal4kmp:0.1.1'
 ```
 
