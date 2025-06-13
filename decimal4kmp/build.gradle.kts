@@ -1,6 +1,5 @@
 import com.vanniktech.maven.publish.SonatypeHost
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 
@@ -37,9 +36,14 @@ kotlin {
 	iosArm64()
 	iosSimulatorArm64()
 
-	@OptIn(ExperimentalWasmDsl::class)
+	js(IR) {
+		nodejs()
+		browser()
+		binaries.executable()
+	}
+
 	wasmJs {
-		browser {}
+		nodejs()
 		binaries.executable()
 	}
 
@@ -107,6 +111,9 @@ tasks.named("iosSimulatorArm64SourcesJar") {
 	dependsOn(tasks.named("kspCommonMainKotlinMetadata"))
 }
 tasks.named("wasmJsSourcesJar") {
+	dependsOn(tasks.named("kspCommonMainKotlinMetadata"))
+}
+tasks.named("jsSourcesJar") {
 	dependsOn(tasks.named("kspCommonMainKotlinMetadata"))
 }
 
