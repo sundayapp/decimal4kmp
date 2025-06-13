@@ -106,6 +106,9 @@ tasks.named("iosArm64SourcesJar") {
 tasks.named("iosSimulatorArm64SourcesJar") {
 	dependsOn(tasks.named("kspCommonMainKotlinMetadata"))
 }
+tasks.named("wasmJsSourcesJar") {
+	dependsOn(tasks.named("kspCommonMainKotlinMetadata"))
+}
 
 tasks {
 	afterEvaluate {
