@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.3](https://github.com/sundayapp/decimal4kmp/compare/v0.1.2...v0.1.3) (2025-07-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gradle to v8.14.3 ([#65](https://github.com/sundayapp/decimal4kmp/issues/65)) ([e79c147](https://github.com/sundayapp/decimal4kmp/commit/e79c147e7efb108ea2140991f12e2310c46fa83f))
+* **deps:** update dependency io.mockk:mockk to v1.14.5 ([#59](https://github.com/sundayapp/decimal4kmp/issues/59)) ([161937f](https://github.com/sundayapp/decimal4kmp/commit/161937f449e2fefc16bb448bbb577c475b78f885))
+* **deps:** update dependency org.jetbrains.kotlinx:kotlinx-datetime to v0.7.1-0.6.x-compat ([#62](https://github.com/sundayapp/decimal4kmp/issues/62)) ([36c8c1a](https://github.com/sundayapp/decimal4kmp/commit/36c8c1a78c8e231819172d4e787f2573c45197a2))
+* **deps:** update kotest ([879da04](https://github.com/sundayapp/decimal4kmp/commit/879da042d1427d0bc31a3bb720ef460c37c4c04e))
+* **deps:** update kotlin monorepo to v2.2.0 ([d817dc2](https://github.com/sundayapp/decimal4kmp/commit/d817dc2a02ec24dd01516b83750d4471390059fd))
+* **deps:** update plugin mavenpublish to v0.34.0 ([9505181](https://github.com/sundayapp/decimal4kmp/commit/9505181b5fd238a930199a1a27e1618085c7ae21))
+
 ## [0.1.2](https://github.com/sundayapp/decimal4kmp/compare/v0.1.1...v0.1.2) (2025-06-13)
 
 
