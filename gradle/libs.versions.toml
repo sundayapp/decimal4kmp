@@ -7,7 +7,7 @@ android-compileSdk = "34"
 kotlinxDatetime = "0.6.2"
 sonarQube = "6.2.0.5505"
 coroutines = "1.10.2"
-kotest = "6.0.0.M3"
+kotest = "6.0.0.M5"
 ksp = "2.1.21-2.0.2"
 
 [libraries]
@@ -36,4 +36,3 @@ mavenPublish = { id = "com.vanniktech.maven.publish", version = "0.34.0" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 sonarQube = { id = "org.sonarqube", version.ref = "sonarQube" }
-kotest-multiplatform = { id = "io.kotest.multiplatform", version.ref = "kotest" }

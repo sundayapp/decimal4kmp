@@ -12,7 +12,6 @@ plugins {
 	alias(libs.plugins.kotlinMultiplatform)
 	alias(libs.plugins.androidLibrary)
 	alias(libs.plugins.sonarQube)
-	alias(libs.plugins.kotest.multiplatform)
 	alias(libs.plugins.googleKsp)
 	alias(libs.plugins.mavenPublish)
 }
