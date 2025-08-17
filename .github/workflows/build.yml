@@ -19,7 +19,7 @@ jobs:
     timeout-minutes: 40
     steps:
       - name: Checkout project
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 2
 
@@ -45,7 +45,7 @@ jobs:
     if: ${{ startsWith(github.ref_name, 'master') || startsWith(github.ref_name, 'hotfix') }}
     steps:
       - name: Checkout project
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
