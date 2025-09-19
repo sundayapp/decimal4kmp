@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.1.4](https://github.com/sundayapp/decimal4kmp/compare/v0.1.3...v0.1.4) (2025-09-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency com.android.library to v8.13.0 ([#75](https://github.com/sundayapp/decimal4kmp/issues/75)) ([8b79ab2](https://github.com/sundayapp/decimal4kmp/commit/8b79ab2edc88409fa56fb2cf5d3ba05813b511fb))
+* **deps:** update dependency gradle to v9.1.0 ([#81](https://github.com/sundayapp/decimal4kmp/issues/81)) ([aa2e541](https://github.com/sundayapp/decimal4kmp/commit/aa2e541af2bbcf9f36db0447a1e91fd037c7fa2a))
+* **deps:** update kotest to v6.0.2 ([#76](https://github.com/sundayapp/decimal4kmp/issues/76)) ([0afc773](https://github.com/sundayapp/decimal4kmp/commit/0afc7734a7b2efdfdfeeaf87adc8c14d50c0f70b))
+* **deps:** update kotest to v6.0.3 ([#78](https://github.com/sundayapp/decimal4kmp/issues/78)) ([f77c259](https://github.com/sundayapp/decimal4kmp/commit/f77c2595e4ce3423c8185fed184e1b15d56a95fa))
+
 ## [0.1.3](https://github.com/sundayapp/decimal4kmp/compare/v0.1.2...v0.1.3) (2025-08-27)
 
 
