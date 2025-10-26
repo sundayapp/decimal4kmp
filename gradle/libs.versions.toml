@@ -7,7 +7,7 @@ android-compileSdk = "34"
 kotlinxDatetime = "0.7.1-0.6.x-compat"
 sonarQube = "7.0.1.6134"
 coroutines = "1.10.2"
-kotest = "6.0.3"
+kotest = "6.0.4"
 ksp = "2.3.0"
 
 [libraries]
