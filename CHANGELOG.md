@@ -1,5 +1,32 @@
 # Changelog
 
+## [0.1.4](https://github.com/sundayapp/decimal4kmp/compare/v0.1.3...v0.1.4) (2025-11-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency com.android.library to v8.13.0 ([#75](https://github.com/sundayapp/decimal4kmp/issues/75)) ([8b79ab2](https://github.com/sundayapp/decimal4kmp/commit/8b79ab2edc88409fa56fb2cf5d3ba05813b511fb))
+* **deps:** update dependency com.android.library to v8.13.1 ([#90](https://github.com/sundayapp/decimal4kmp/issues/90)) ([fb345f1](https://github.com/sundayapp/decimal4kmp/commit/fb345f190458aca6ad487ee92bf32ae7227a459e))
+* **deps:** update dependency gradle to v9.1.0 ([#81](https://github.com/sundayapp/decimal4kmp/issues/81)) ([aa2e541](https://github.com/sundayapp/decimal4kmp/commit/aa2e541af2bbcf9f36db0447a1e91fd037c7fa2a))
+* **deps:** update dependency io.mockk:mockk to v1.14.6 ([#82](https://github.com/sundayapp/decimal4kmp/issues/82)) ([5538ff4](https://github.com/sundayapp/decimal4kmp/commit/5538ff45ddd599df431b36787db0f059c039230b))
+* **deps:** update dependency macos to v15 ([#86](https://github.com/sundayapp/decimal4kmp/issues/86)) ([7c45d07](https://github.com/sundayapp/decimal4kmp/commit/7c45d07d231c118b99628f36f315cda8f0c795f0))
+* **deps:** update dependency org.sonarqube to v7 ([#84](https://github.com/sundayapp/decimal4kmp/issues/84)) ([900013c](https://github.com/sundayapp/decimal4kmp/commit/900013cec9621679be1d437e16481a243e089a28))
+* **deps:** update gradle to v9.2.0 ([#88](https://github.com/sundayapp/decimal4kmp/issues/88)) ([6d46637](https://github.com/sundayapp/decimal4kmp/commit/6d46637938bce2bb59b7e22ecd8ea091c89adb46))
+* **deps:** update gradle/actions action to v5 ([#83](https://github.com/sundayapp/decimal4kmp/issues/83)) ([1c70af2](https://github.com/sundayapp/decimal4kmp/commit/1c70af2a8ed899ac96a82b1c9558936549f907d3))
+* **deps:** update kotest to v6.0.2 ([#76](https://github.com/sundayapp/decimal4kmp/issues/76)) ([0afc773](https://github.com/sundayapp/decimal4kmp/commit/0afc7734a7b2efdfdfeeaf87adc8c14d50c0f70b))
+* **deps:** update kotest to v6.0.3 ([#78](https://github.com/sundayapp/decimal4kmp/issues/78)) ([f77c259](https://github.com/sundayapp/decimal4kmp/commit/f77c2595e4ce3423c8185fed184e1b15d56a95fa))
+* **deps:** update kotest to v6.0.4 ([#85](https://github.com/sundayapp/decimal4kmp/issues/85)) ([413b99b](https://github.com/sundayapp/decimal4kmp/commit/413b99b6f113af5346abe1f43eec91c76bb4a13a))
+* **deps:** update kotlin monorepo to v2.2.20 ([d544661](https://github.com/sundayapp/decimal4kmp/commit/d54466106a73542dd786314969aa8fe68cf301cc))
+* **deps:** update kotlin monorepo to v2.2.21 ([#87](https://github.com/sundayapp/decimal4kmp/issues/87)) ([8b472bf](https://github.com/sundayapp/decimal4kmp/commit/8b472bfe8e5f39d449018a1e28c049601d2ddb53))
+* **deps:** update ksp monorepo to v2.2.20-2.0.3 ([4e1bdb7](https://github.com/sundayapp/decimal4kmp/commit/4e1bdb7c67ba0fd3a1e485dc5c9f1720b39570b0))
+* **deps:** update ksp monorepo to v2.3.0 ([#80](https://github.com/sundayapp/decimal4kmp/issues/80)) ([d97081e](https://github.com/sundayapp/decimal4kmp/commit/d97081ecc46bd8e33cad16491898fdbd0474420c))
+* **deps:** update ksp monorepo to v2.3.2 ([#89](https://github.com/sundayapp/decimal4kmp/issues/89)) ([6f01191](https://github.com/sundayapp/decimal4kmp/commit/6f011912e2661b0f6db7db881677ccdf8683f4b1))
+
+
+### Continuous Integration
+
+* **deps:** remove `yarn.lock` for Kotlin JS Store wasm platform due to deprecation ([d20e33b](https://github.com/sundayapp/decimal4kmp/commit/d20e33b67a27bb4bb21b7e149d4c165a08c73e69))
+
 ## [0.1.3](https://github.com/sundayapp/decimal4kmp/compare/v0.1.2...v0.1.3) (2025-08-27)
 
 
