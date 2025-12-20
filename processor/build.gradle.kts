@@ -4,7 +4,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 val kspVersion: String by project
 
 plugins {
-    alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.kotlin.multiplatform)
 }
 
 group = "com.example"
@@ -19,10 +19,10 @@ kotlin {
     }
 
     sourceSets {
-        val jvmMain by getting {
+        jvmMain {
             dependencies {
 
-                implementation("org.freemarker:freemarker:2.3.34")
+                implementation(libs.freemarker)
 
                 implementation(libs.ksp.api)
             }
@@ -30,7 +30,7 @@ kotlin {
             resources.srcDir("src/main/resources")
         }
 
-        val jvmTest by getting {
+        jvmTest {
             dependencies {
                 implementation(libs.junit)
                 implementation(libs.mockk)

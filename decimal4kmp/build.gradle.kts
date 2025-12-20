@@ -1,4 +1,7 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+@file:OptIn(ExperimentalWasmDsl::class)
+
+import com.android.build.api.dsl.androidLibrary
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 
@@ -9,8 +12,8 @@ buildscript {
 }
 
 plugins {
-	alias(libs.plugins.kotlinMultiplatform)
-	alias(libs.plugins.androidLibrary)
+	alias(libs.plugins.kotlin.multiplatform)
+	alias(libs.plugins.kotlin.multiplatform.android.library)
 	alias(libs.plugins.sonarQube)
 	alias(libs.plugins.googleKsp)
 	alias(libs.plugins.mavenPublish)
@@ -23,14 +26,19 @@ version="0.1.3"
 
 kotlin {
 	jvm()
-	androidTarget {
-		publishLibraryVariants("release")
-		@OptIn(ExperimentalKotlinGradlePluginApi::class)
+
+    @Suppress("UnstableApiUsage")
+    androidLibrary {
+
 		compilerOptions {
 			jvmTarget.set(JvmTarget.JVM_11)
 		}
+
+        namespace = "org.decimal4kmp"
+        compileSdk = libs.versions.android.compileSdk.get().toInt()
+        minSdk = libs.versions.android.minSdk.get().toInt()
 	}
-	iosX64()
+    iosX64()
 	iosArm64()
 	iosSimulatorArm64()
 
@@ -54,26 +62,20 @@ kotlin {
 			}
 		}
 
-		androidUnitTest {
-			dependencies {
-
-			}
-		}
-
 		jvmMain {
 			kotlin.srcDir("src/commonJvmAndroid/kotlin")
 			kotlin.srcDir("jvmMain/kotlin")
 			resources.srcDir("jvmMain/resources")
 		}
 
-
-		val commonMain by getting {
+		commonMain {
 			kotlin.srcDir("commonMain/kotlin")
 			dependencies {
 				implementation(kotlin("stdlib"))
 			}
 		}
-		val commonTest by getting {
+
+		commonTest {
 			dependencies {
 				implementation(libs.junit)
 				implementation(libs.junit.params)
@@ -118,22 +120,12 @@ tasks.named("jsSourcesJar") {
 tasks {
 	afterEvaluate {
 		tasks.getByName("kspKotlinJvm").dependsOn(":decimal4kmp:kspCommonMainKotlinMetadata")
-		tasks.getByName("kspDebugKotlinAndroid").dependsOn(":decimal4kmp:kspCommonMainKotlinMetadata")
-		tasks.getByName("kspReleaseKotlinAndroid").dependsOn(":decimal4kmp:kspCommonMainKotlinMetadata")
+		tasks.getByName("kspAndroidMain").dependsOn(":decimal4kmp:kspCommonMainKotlinMetadata")
 	}
 }
 
 kotlin.sourceSets.commonMain {
 	kotlin.srcDir("build/generated/ksp/metadata/commonMain/kotlin")
-}
-
-android {
-	namespace = "org.decimal4kmp"
-	compileSdk = 35
-	defaultConfig {
-		compileSdk = 35
-		minSdk = libs.versions.android.minSdk.get().toInt()
-	}
 }
 
 mavenPublishing {

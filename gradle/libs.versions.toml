@@ -1,29 +1,21 @@
 [versions]
 agp = "8.13.2"
 fmpp = "0.9.16"
+freemarker = "2.3.34"
 kotlin = "2.3.0"
+#noinspection UnusedVersionCatalogEntry
 android-minSdk = "24"
-android-compileSdk = "34"
-kotlinxDatetime = "0.7.1-0.6.x-compat"
+#noinspection UnusedVersionCatalogEntry
+android-compileSdk = "36"
 sonarQube = "7.2.2.6593"
-coroutines = "1.10.2"
-kotest = "6.0.7"
 ksp = "2.3.4"
 
 [libraries]
 fmpp = { module = "net.sourceforge.fmpp:fmpp", version.ref = "fmpp" }
-kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+freemarker = { module = "org.freemarker:freemarker", version.ref = "freemarker" }
 junit = { module = "junit:junit", version = "4.13.2" }
 junit-params = { module = "pl.pragmatists:JUnitParams", version = "1.1.1" }
-kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
-kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
-kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
-kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
-kotest-framework-engine = { module = "io.kotest:kotest-framework-engine", version.ref = "kotest" }
-kotest-property = { module = "io.kotest:kotest-property", version.ref = "kotest" }
-kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
-javapoet = { module = "com.squareup:javapoet", version = "1.13.0" }
 ksp-api = { module = "com.google.devtools.ksp:symbol-processing-api", version.ref = "ksp" }
 mockk = { group = "io.mockk", name = "mockk", version = "1.14.7" }
 
@@ -32,7 +24,6 @@ mockk = { group = "io.mockk", name = "mockk", version = "1.14.7" }
 [plugins]
 googleKsp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 mavenPublish = { id = "com.vanniktech.maven.publish", version = "0.35.0" }
-
-androidLibrary = { id = "com.android.library", version.ref = "agp" }
-kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlin-multiplatform-android-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 sonarQube = { id = "org.sonarqube", version.ref = "sonarQube" }
