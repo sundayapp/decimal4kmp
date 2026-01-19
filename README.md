@@ -38,4 +38,3 @@ Ported for the library [decimal4j](https://github.com/tools4j/decimal4j)
 ```
 compile 'org.sundayapp:decimal4kmp:0.1.1'
 ```
-

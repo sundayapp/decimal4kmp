@@ -7,7 +7,7 @@ on:
       - 'decimal4kmp/build.gradle.kts'
       - '.release-please-manifest.json'
     branches:
-      - master
+      - main
       - hotfix/**
 jobs:
   build:
@@ -42,7 +42,7 @@ jobs:
       - runner=4cpu-linux-x64
       - spot=false
       - family=${{ vars.GHA_RUNNER_FAMILY }}
-    if: ${{ startsWith(github.ref_name, 'master') || startsWith(github.ref_name, 'hotfix') }}
+    if: ${{ startsWith(github.ref_name, 'main') || startsWith(github.ref_name, 'hotfix') }}
     steps:
       - name: Checkout project
         uses: actions/checkout@v6
