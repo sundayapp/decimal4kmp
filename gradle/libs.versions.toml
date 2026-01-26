@@ -17,7 +17,7 @@ junit = { module = "junit:junit", version = "4.13.2" }
 junit-params = { module = "pl.pragmatists:JUnitParams", version = "1.1.1" }
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
 ksp-api = { module = "com.google.devtools.ksp:symbol-processing-api", version.ref = "ksp" }
-mockk = { group = "io.mockk", name = "mockk", version = "1.14.7" }
+mockk = { group = "io.mockk", name = "mockk", version = "1.14.9" }
 
 
 
