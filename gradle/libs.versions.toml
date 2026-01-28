@@ -8,7 +8,7 @@ android-minSdk = "24"
 #noinspection UnusedVersionCatalogEntry
 android-compileSdk = "36"
 sonarQube = "7.2.2.6593"
-ksp = "2.3.4"
+ksp = "2.3.5"
 
 [libraries]
 fmpp = { module = "net.sourceforge.fmpp:fmpp", version.ref = "fmpp" }
