@@ -2,7 +2,7 @@
 agp = "8.13.2"
 fmpp = "0.9.16"
 freemarker = "2.3.34"
-kotlin = "2.3.0"
+kotlin = "2.3.10"
 #noinspection UnusedVersionCatalogEntry
 android-minSdk = "24"
 #noinspection UnusedVersionCatalogEntry
