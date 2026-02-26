@@ -6,6 +6,8 @@ on:
       - 'build.gradle.kts'
       - 'decimal4kmp/build.gradle.kts'
       - '.release-please-manifest.json'
+      - '.github/**'
+      - '**.md'
     branches:
       - main
       - hotfix/**
