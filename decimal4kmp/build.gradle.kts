@@ -82,6 +82,14 @@ kotlin {
 				implementation(libs.kotlin.reflect)
 			}
 		}
+
+		jsMain {
+			dependencies {
+				implementation(npm("serialize-javascript", "^7.0.3"))
+				implementation(npm("webpack", "^5.104.1"))
+				implementation(npm("diff", "^8.0.3"))
+			}
+		}
 	}
 }
 
