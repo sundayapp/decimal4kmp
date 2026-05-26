@@ -10,12 +10,7 @@ on:
 
 jobs:
   release:
-    runs-on:
-      - runs-on
-      - run-id=${{ github.run_id }}
-      - runner=4cpu-linux-x64
-      - spot=false
-      - family=${{ vars.GHA_RUNNER_FAMILY }}
+    runs-on: runs-on=${{ github.run_id }}/runner=4cpu-linux-x64/image=${{ vars.GHA_IMAGE }}/spot=false/family=${{ vars.GHA_RUNNER_FAMILY }}/env=${{ vars.GHA_ENVIRONMENT }}/volume=${{ vars.GHA_RUNNER_DISK_SIZE }}/extras=s3-cache
     if: ${{ startsWith(github.ref_name, 'main') || startsWith(github.ref_name, 'hotfix') }}
     steps:
       - name: Checkout project
