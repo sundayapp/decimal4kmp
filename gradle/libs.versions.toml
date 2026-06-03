@@ -7,7 +7,7 @@ kotlin = "2.3.0"
 android-minSdk = "24"
 #noinspection UnusedVersionCatalogEntry
 android-compileSdk = "36"
-sonarQube = "7.2.3.7755"
+sonarQube = "7.3.1.8318"
 ksp = "2.3.6"
 
 [libraries]
