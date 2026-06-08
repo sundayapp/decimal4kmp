@@ -7,7 +7,6 @@ kotlin = "2.3.0"
 android-minSdk = "24"
 #noinspection UnusedVersionCatalogEntry
 android-compileSdk = "36"
-sonarQube = "7.3.1.8318"
 ksp = "2.3.6"
 
 [libraries]
@@ -26,4 +25,3 @@ googleKsp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 mavenPublish = { id = "com.vanniktech.maven.publish", version = "0.35.0" }
 kotlin-multiplatform-android-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
-sonarQube = { id = "org.sonarqube", version.ref = "sonarQube" }
