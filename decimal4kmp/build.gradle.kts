@@ -14,7 +14,6 @@ buildscript {
 plugins {
 	alias(libs.plugins.kotlin.multiplatform)
 	alias(libs.plugins.kotlin.multiplatform.android.library)
-	alias(libs.plugins.sonarQube)
 	alias(libs.plugins.googleKsp)
 	alias(libs.plugins.mavenPublish)
 }
