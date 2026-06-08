@@ -10,5 +10,5 @@ on:
 
 jobs:
   github-backup:
-    uses: sundayapp/reusable-workflows/.github/workflows/repository-backup.yml@v3
+    uses: sundayapp/reusable-workflows/.github/workflows/repository-backup.yml@v4
     secrets: inherit
