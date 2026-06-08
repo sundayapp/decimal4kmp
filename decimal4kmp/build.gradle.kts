@@ -1,6 +1,5 @@
 @file:OptIn(ExperimentalWasmDsl::class)
 
-import com.android.build.api.dsl.androidLibrary
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
@@ -26,8 +25,7 @@ version="0.1.3"
 kotlin {
 	jvm()
 
-    @Suppress("UnstableApiUsage")
-    androidLibrary {
+    android {
 
 		compilerOptions {
 			jvmTarget.set(JvmTarget.JVM_11)
@@ -41,7 +39,7 @@ kotlin {
 	iosArm64()
 	iosSimulatorArm64()
 
-	js(IR) {
+	js {
 		nodejs()
 		browser()
 		binaries.executable()
