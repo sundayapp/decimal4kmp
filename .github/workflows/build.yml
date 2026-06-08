@@ -54,7 +54,7 @@ jobs:
           private-key: ${{ secrets.APP_GITHUB_PRIVATE_KEY }}
 
       - name: Release-please
-        uses: googleapis/release-please-action@v4
+        uses: googleapis/release-please-action@v5
         id: release
         with:
           token: ${{ steps.generate_token.outputs.token }}
