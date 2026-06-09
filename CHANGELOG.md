@@ -1,5 +1,76 @@
 # Changelog
 
+## [0.2.0](https://github.com/sundayapp/decimal4kmp/compare/v0.1.3...v0.2.0) (2026-06-08)
+
+
+### Features
+
+* **compliance:** updated CODEOWNERS file ([27307fd](https://github.com/sundayapp/decimal4kmp/commit/27307fdf91f62a95a8ada8d579469b437a17955f))
+* **compliance:** updated CODEOWNERS file ([ec66192](https://github.com/sundayapp/decimal4kmp/commit/ec661921c6268d6c39875e0bbd8a1f69f7dc591f))
+* **compliance:** updated nightly backup workflow ([8fec74f](https://github.com/sundayapp/decimal4kmp/commit/8fec74f2ee2076e4a9379c077604bd3bf4106ea2))
+* switched default branch to main ([bee4c28](https://github.com/sundayapp/decimal4kmp/commit/bee4c282f7a8188f31db7c26680cd84bdc1b1170))
+
+
+### Bug Fixes
+
+* **cicd:** migrate runs-on to new inline format ([87fbc63](https://github.com/sundayapp/decimal4kmp/commit/87fbc63b1e41a031ffde3c235ef110c78448ab66))
+* **cicd:** switched deprecated GH token GHA to official ([23f3d5d](https://github.com/sundayapp/decimal4kmp/commit/23f3d5d6424b917fe3e0784f646c0aa41d98a143))
+* **cicd:** switched deprecated GH token GHA to official ([2be900f](https://github.com/sundayapp/decimal4kmp/commit/2be900ff5ad11d4c790eece10c6c771cd34ce47e))
+* **compliance:** updated CODEOWNERS file ([9e85c95](https://github.com/sundayapp/decimal4kmp/commit/9e85c95efdb1d21e14b890834fcd1edbbc11a4e1))
+* **compliance:** updated nightly backup workflow ([178e04b](https://github.com/sundayapp/decimal4kmp/commit/178e04b6dfbb53c96d2dcb7b98fd372d1597ea3c))
+* **deps:** update actions/checkout action to v6 ([#95](https://github.com/sundayapp/decimal4kmp/issues/95)) ([9668628](https://github.com/sundayapp/decimal4kmp/commit/9668628e21afcdc6a92c7cfc58836cb03bc32c35))
+* **deps:** update dependency AGP plugin to v9.2.1 ([f2b5d8c](https://github.com/sundayapp/decimal4kmp/commit/f2b5d8cf13490b216e3deb075c335e334044df40))
+* **deps:** update dependency com.android.library to v8.13.1 ([#90](https://github.com/sundayapp/decimal4kmp/issues/90)) ([fb345f1](https://github.com/sundayapp/decimal4kmp/commit/fb345f190458aca6ad487ee92bf32ae7227a459e))
+* **deps:** update dependency com.android.library to v8.13.2 ([#100](https://github.com/sundayapp/decimal4kmp/issues/100)) ([44e0c81](https://github.com/sundayapp/decimal4kmp/commit/44e0c8160e13c97b382c9d3e8d0200684efa8a5a))
+* **deps:** update dependency io.mockk:mockk to v1.14.11 ([#123](https://github.com/sundayapp/decimal4kmp/issues/123)) ([aceed5c](https://github.com/sundayapp/decimal4kmp/commit/aceed5c38ed014cf52a2882ce358e91a899af773))
+* **deps:** update dependency io.mockk:mockk to v1.14.7 ([#99](https://github.com/sundayapp/decimal4kmp/issues/99)) ([c1b3c94](https://github.com/sundayapp/decimal4kmp/commit/c1b3c9490e2ba1650b333a2c11feeed34df07392))
+* **deps:** update dependency io.mockk:mockk to v1.14.9 ([#109](https://github.com/sundayapp/decimal4kmp/issues/109)) ([2ccfc7d](https://github.com/sundayapp/decimal4kmp/commit/2ccfc7d31dbe876807fd272f689cc1255d5eb995))
+* **deps:** update dependency macos to v26 ([#125](https://github.com/sundayapp/decimal4kmp/issues/125)) ([62d59ca](https://github.com/sundayapp/decimal4kmp/commit/62d59ca371dbb76338d43ccfa19a1f6974321bc6))
+* **deps:** update dependency org.jetbrains.kotlin.multiplatform to v2.4.0 ([5a60cde](https://github.com/sundayapp/decimal4kmp/commit/5a60cde3afc890d99999cf037bb1ee0aecefb375))
+* **deps:** update dependency org.sonarqube to v7.1.0.6387 ([#94](https://github.com/sundayapp/decimal4kmp/issues/94)) ([995ca01](https://github.com/sundayapp/decimal4kmp/commit/995ca01340ea5bf7536081abbbc4af58c9657dd3))
+* **deps:** update dependency org.sonarqube to v7.2.0.6526 ([#98](https://github.com/sundayapp/decimal4kmp/issues/98)) ([26a808f](https://github.com/sundayapp/decimal4kmp/commit/26a808fedc8d2baf9fb9e4bfafb26a1f066dd5dd))
+* **deps:** update dependency org.sonarqube to v7.2.2.6593 ([#101](https://github.com/sundayapp/decimal4kmp/issues/101)) ([18273b1](https://github.com/sundayapp/decimal4kmp/commit/18273b1e374ecd9d96b40430bf44dc35a9ff94cc))
+* **deps:** update dependency org.sonarqube to v7.2.3.7755 ([#115](https://github.com/sundayapp/decimal4kmp/issues/115)) ([cd6960f](https://github.com/sundayapp/decimal4kmp/commit/cd6960f88935548178833232573c75d1ac654ece))
+* **deps:** update dependency org.sonarqube to v7.3.1.8318 ([#122](https://github.com/sundayapp/decimal4kmp/issues/122)) ([6cb34f4](https://github.com/sundayapp/decimal4kmp/commit/6cb34f4da6850f6b2b8f0f40f0a2159bf4f2c2de))
+* **deps:** update googleapis/release-please-action action to v5 ([#119](https://github.com/sundayapp/decimal4kmp/issues/119)) ([4773cae](https://github.com/sundayapp/decimal4kmp/commit/4773cae8a80ef1c35807a889c619f9f0d4289982))
+* **deps:** update gradle to v9.2.1 ([#92](https://github.com/sundayapp/decimal4kmp/issues/92)) ([be4b32c](https://github.com/sundayapp/decimal4kmp/commit/be4b32c94000b67dd5d3ba82eb6bf37524190e0c))
+* **deps:** update gradle to v9.3.1 ([#111](https://github.com/sundayapp/decimal4kmp/issues/111)) ([6485473](https://github.com/sundayapp/decimal4kmp/commit/648547396a1da1d38e3da631dabdadb306ba46a1))
+* **deps:** update gradle to v9.4.0 ([#116](https://github.com/sundayapp/decimal4kmp/issues/116)) ([eebf984](https://github.com/sundayapp/decimal4kmp/commit/eebf984a4a31d4b3724d401c33a0c10937736b28))
+* **deps:** update gradle to v9.4.1 ([#117](https://github.com/sundayapp/decimal4kmp/issues/117)) ([8781b32](https://github.com/sundayapp/decimal4kmp/commit/8781b32aff428af59a40f3e9ad3ddc2fc41e93ec))
+* **deps:** update gradle to v9.5.1 ([#121](https://github.com/sundayapp/decimal4kmp/issues/121)) ([cc7e486](https://github.com/sundayapp/decimal4kmp/commit/cc7e4864b915ae1d9785933dada1f1f1fd8633fe))
+* **deps:** update gradle/actions action to v6 ([#118](https://github.com/sundayapp/decimal4kmp/issues/118)) ([9dff2a4](https://github.com/sundayapp/decimal4kmp/commit/9dff2a41da7b936159b1da3d6c391aeaef8f93d2))
+* **deps:** update kotest to v6.0.4 ([#85](https://github.com/sundayapp/decimal4kmp/issues/85)) ([413b99b](https://github.com/sundayapp/decimal4kmp/commit/413b99b6f113af5346abe1f43eec91c76bb4a13a))
+* **deps:** update kotest to v6.0.5 ([#93](https://github.com/sundayapp/decimal4kmp/issues/93)) ([cb7655d](https://github.com/sundayapp/decimal4kmp/commit/cb7655d0103f0cc0a84bd1b49fa4a6c80705faa6))
+* **deps:** update kotest to v6.0.7 ([#97](https://github.com/sundayapp/decimal4kmp/issues/97)) ([888e790](https://github.com/sundayapp/decimal4kmp/commit/888e79038cf5f01bf1818db8245dfda94fe639e1))
+* **deps:** update kotlin monorepo to v2.3.0 ([bb28620](https://github.com/sundayapp/decimal4kmp/commit/bb286201d9a22bc5dbc8194b435d21b01cfc0e3e))
+* **deps:** update ksp monorepo to v2.3.2 ([#89](https://github.com/sundayapp/decimal4kmp/issues/89)) ([6f01191](https://github.com/sundayapp/decimal4kmp/commit/6f011912e2661b0f6db7db881677ccdf8683f4b1))
+* **deps:** update ksp monorepo to v2.3.3 ([#96](https://github.com/sundayapp/decimal4kmp/issues/96)) ([8e5e7a8](https://github.com/sundayapp/decimal4kmp/commit/8e5e7a8854188422d6316d71a1314abd3583663e))
+* **deps:** update ksp monorepo to v2.3.4 ([#103](https://github.com/sundayapp/decimal4kmp/issues/103)) ([74aed39](https://github.com/sundayapp/decimal4kmp/commit/74aed390fabc82cdd0f53ceb75b8c8ee91dc948f))
+* **deps:** update ksp monorepo to v2.3.5 ([#110](https://github.com/sundayapp/decimal4kmp/issues/110)) ([3b2ed5a](https://github.com/sundayapp/decimal4kmp/commit/3b2ed5ad1609878daa65891840c00bd46c829199))
+* **deps:** update ksp monorepo to v2.3.6 ([#113](https://github.com/sundayapp/decimal4kmp/issues/113)) ([655c837](https://github.com/sundayapp/decimal4kmp/commit/655c83772eb0b6044da9f005aefebcee53750e9a))
+* **deps:** update ksp monorepo to v2.3.9 ([#120](https://github.com/sundayapp/decimal4kmp/issues/120)) ([e2940b7](https://github.com/sundayapp/decimal4kmp/commit/e2940b7dfa6f8bdfed787e7099fa3cb62d81a2e5))
+* **deps:** update plugin mavenpublish to v0.35.0 ([#91](https://github.com/sundayapp/decimal4kmp/issues/91)) ([27cbca7](https://github.com/sundayapp/decimal4kmp/commit/27cbca76dca21dba7644301ffc9eca63f234104e))
+* **deps:** update plugin mavenpublish to v0.36.0 ([#128](https://github.com/sundayapp/decimal4kmp/issues/128)) ([8535bfd](https://github.com/sundayapp/decimal4kmp/commit/8535bfdaae07a2bb522de1962a6cef66ac22f84d))
+* **deps:** update sundayapp/reusable-workflows action to v4 ([#126](https://github.com/sundayapp/decimal4kmp/issues/126)) ([3834b1f](https://github.com/sundayapp/decimal4kmp/commit/3834b1fb8cf47502e0cd9f7e1a129b758a4293c2))
+
+
+### Miscellaneous
+
+* fix dependencies for jsMain in build.gradle.kts ([6fde7d5](https://github.com/sundayapp/decimal4kmp/commit/6fde7d52697152fbea9376e8360e6884c2db74b1))
+* remove SonarQube integration ([#127](https://github.com/sundayapp/decimal4kmp/issues/127)) ([2fe44f9](https://github.com/sundayapp/decimal4kmp/commit/2fe44f9e22af9dc9565f5d70a58615f731503775))
+* update npm dependencies to address vulnerabilities ([74baa56](https://github.com/sundayapp/decimal4kmp/commit/74baa56590733b536dfad6a100447d040c444f83))
+
+
+### Build System
+
+* **gradle:** bump compileSdk version to 37 ([814ab1e](https://github.com/sundayapp/decimal4kmp/commit/814ab1e1f3fdbf4eff4c4a15d14f0b946eb50285))
+* **kotlin:** replace android plugin with multiplatform android plugin ([e996a99](https://github.com/sundayapp/decimal4kmp/commit/e996a99a505ace2abe71c0a2c8fc8de21a7569d6))
+
+
+### Continuous Integration
+
+* add missing paths-ignore entries in build.yml ([#114](https://github.com/sundayapp/decimal4kmp/issues/114)) ([c42e83d](https://github.com/sundayapp/decimal4kmp/commit/c42e83db98270e25decd2c4a9468a0fd17e03672))
+
 ## [0.1.3](https://github.com/sundayapp/decimal4kmp/compare/v0.1.2...v0.1.3) (2025-08-27)
 
 
