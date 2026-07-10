@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.2.1](https://github.com/sundayapp/decimal4kmp/compare/v0.2.0...v0.2.1) (2026-07-10)
+
+
+### Bug Fixes
+
+* **deps:** update actions/checkout action to v7 ([#129](https://github.com/sundayapp/decimal4kmp/issues/129)) ([fd156ca](https://github.com/sundayapp/decimal4kmp/commit/fd156ca009cb68b563b2733bd06bc61edba807bc))
+* **deps:** update gradle to v9.6.1 ([#130](https://github.com/sundayapp/decimal4kmp/issues/130)) ([408308b](https://github.com/sundayapp/decimal4kmp/commit/408308bbb3c464716a82303df05b143a08cd4fbb))
+* **deps:** update ksp monorepo to v2.3.10 ([#133](https://github.com/sundayapp/decimal4kmp/issues/133)) ([0621d05](https://github.com/sundayapp/decimal4kmp/commit/0621d055e61c1901c9c8944194c610ccbfe801bb))
+* **deps:** update plugin mavenpublish to v0.37.0 ([#131](https://github.com/sundayapp/decimal4kmp/issues/131)) ([b0650ca](https://github.com/sundayapp/decimal4kmp/commit/b0650ca10038d09de08f819fc11fe87a894ddaa0))
+
 ## [0.2.0](https://github.com/sundayapp/decimal4kmp/compare/v0.1.3...v0.2.0) (2026-06-08)
 
 
