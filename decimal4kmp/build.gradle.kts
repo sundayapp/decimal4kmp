@@ -97,36 +97,18 @@ dependencies {
 	add("kspAndroid", project(":processor"))
 }
 
-tasks.withType<KotlinCompilationTask<*>>().all {
-	if(name != "kspCommonMainKotlinMetadata") {
+tasks.withType<KotlinCompilationTask<*>>().configureEach {
+	if (name != "kspCommonMainKotlinMetadata") {
 		dependsOn("kspCommonMainKotlinMetadata")
 	}
 }
 
-tasks.named("sourcesJar") {
-	dependsOn(tasks.named("kspCommonMainKotlinMetadata"))
-}
-
-tasks.named("iosX64SourcesJar") {
-	dependsOn(tasks.named("kspCommonMainKotlinMetadata"))
-}
-tasks.named("iosArm64SourcesJar") {
-	dependsOn(tasks.named("kspCommonMainKotlinMetadata"))
-}
-tasks.named("iosSimulatorArm64SourcesJar") {
-	dependsOn(tasks.named("kspCommonMainKotlinMetadata"))
-}
-tasks.named("wasmJsSourcesJar") {
-	dependsOn(tasks.named("kspCommonMainKotlinMetadata"))
-}
-tasks.named("jsSourcesJar") {
-	dependsOn(tasks.named("kspCommonMainKotlinMetadata"))
-}
-
-tasks {
-	afterEvaluate {
-		tasks.getByName("kspKotlinJvm").dependsOn(":decimal4kmp:kspCommonMainKotlinMetadata")
-		tasks.getByName("kspAndroidMain").dependsOn(":decimal4kmp:kspCommonMainKotlinMetadata")
+tasks.configureEach {
+	if (name.startsWith("ksp") && name != "kspCommonMainKotlinMetadata") {
+		dependsOn("kspCommonMainKotlinMetadata")
+	}
+	if (name.endsWith("sourcesJar", ignoreCase = true)) {
+		dependsOn("kspCommonMainKotlinMetadata")
 	}
 }
 
