@@ -1,0 +1,43 @@
+name: Agentic Feature Development
+
+on:
+  workflow_dispatch:
+    inputs:
+      task:
+        required: true
+        type: string
+        description: Feature brief for the agent (branch + PR creation is automatic)
+      feature_id:
+        required: false
+        type: string
+        description: Unique identifier for the feature (eg. Linear Issue ID) used to derive the feature-dev branch name.
+      resumeUrl:
+        required: false
+        type: string
+        description: n8n's one-time callback URL that resumes the Dispatch and Wait steps. Treat as sensitive — never call or expose it manually.
+      request_id:
+        required: false
+        type: string
+        description: n8n-generated per-dispatch correlation ID, required whenever resumeUrl is supplied.
+  issue_comment:
+    types: [created]
+
+jobs:
+  develop:
+    if: |
+      vars.ENABLE_AGENTIC_FEATURE_DEV == 'true' &&
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.issue.pull_request &&
+       startsWith(github.event.comment.body, '/update') &&
+       contains(fromJSON('["MEMBER","OWNER","COLLABORATOR"]'), github.event.comment.author_association))
+    uses: sundayapp/reusable-workflows/.github/workflows/feature-dev-template.yml@v4
+    with:
+      task: ${{ inputs.task || '' }}
+      feature_id: ${{ inputs.feature_id || '' }}
+      resumeUrl: ${{ inputs.resumeUrl || '' }}
+      request_id: ${{ inputs.request_id || '' }}
+      iteration_prompt: ${{ github.event.comment.body || '' }}
+    secrets:
+      LITELLM_API_KEY: ${{ secrets.LITELLM_FEATURE_DEV_API_KEY }}
+      APP_GITHUB_ID: ${{ secrets.APP_GITHUB_ID }}
+      APP_GITHUB_PRIVATE_KEY: ${{ secrets.APP_GITHUB_PRIVATE_KEY }}
