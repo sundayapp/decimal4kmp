@@ -1,5 +1,5 @@
 [versions]
-agp = "9.4.0"
+agp = "9.4.1"
 fmpp = "0.9.16"
 freemarker = "2.3.35"
 kotlin = "2.4.20"
