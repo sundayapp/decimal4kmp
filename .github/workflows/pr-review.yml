@@ -11,7 +11,7 @@ jobs:
       (github.event.issue.pull_request &&
        startsWith(github.event.comment.body, '/review') &&
        contains(fromJSON('["MEMBER","OWNER","COLLABORATOR"]'), github.event.comment.author_association))
-    uses: sundayapp/reusable-workflows/.github/workflows/pr-review-template.yml@v4
+    uses: sundayapp/reusable-workflows/.github/workflows/pr-review-template.yml@v5
     secrets:
       LITELLM_PR_REVIEWS_API_KEY: ${{ secrets.LITELLM_PR_REVIEWS_API_KEY }}
       APP_GITHUB_ID: ${{ secrets.APP_GITHUB_ID }}
