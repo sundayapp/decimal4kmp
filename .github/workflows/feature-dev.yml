@@ -30,7 +30,7 @@ jobs:
       (github.event.issue.pull_request &&
        startsWith(github.event.comment.body, '/update') &&
        contains(fromJSON('["MEMBER","OWNER","COLLABORATOR"]'), github.event.comment.author_association))
-    uses: sundayapp/reusable-workflows/.github/workflows/feature-dev-template.yml@v4
+    uses: sundayapp/reusable-workflows/.github/workflows/feature-dev-template.yml@v5
     with:
       task: ${{ inputs.task || '' }}
       feature_id: ${{ inputs.feature_id || '' }}
