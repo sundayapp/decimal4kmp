@@ -1,32 +1,19 @@
 name: Renovate
 
 on:
+  schedule:
+    - cron: 53 */2 * * *
   push:
     branches:
-      - renovate/**
+      - main
+  issues:
+    types: [edited]
+  workflow_dispatch:
 
 jobs:
-  check:
-    runs-on: macos-26
+  renovate:
     permissions:
-      contents: write
-      id-token: write
-      packages: read
-    timeout-minutes: 40
-    steps:
-      - name: Checkout project
-        uses: actions/checkout@v7
-        with:
-          fetch-depth: 2
-
-      - name: Set up JDK
-        uses: actions/setup-java@v6
-        with:
-          java-version: "25"
-          distribution: "temurin"
-
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v6
-
-      - name: Test project
-        run: ./gradlew check
+      contents: 'read'
+      id-token: 'write'
+    uses: sundayapp/reusable-workflows/.github/workflows/renovate.yml@v5
+    secrets: inherit
