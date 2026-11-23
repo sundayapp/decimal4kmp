@@ -2,7 +2,7 @@ name: Renovate
 
 on:
   schedule:
-    - cron: 53 */2 * * *
+    - cron: 37 0,2,4,6,8,10,12,14,16,18,20,22 * * *
   push:
     branches:
       - main
