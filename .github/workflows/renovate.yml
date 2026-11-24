@@ -15,5 +15,5 @@ jobs:
     permissions:
       contents: 'read'
       id-token: 'write'
-    uses: sundayapp/reusable-workflows/.github/workflows/renovate.yml@v5
+    uses: sundayapp/reusable-workflows/.github/workflows/renovate-template.yml@v5
     secrets: inherit
